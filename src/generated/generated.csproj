@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0FA7289E-A8BC-4D10-8EB0-520880AB9EDA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>generated</RootNamespace>
+    <AssemblyName>generated</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccountEntry.cs" />
+    <Compile Include="AccountFlags.cs" />
+    <Compile Include="AccountID.cs" />
+    <Compile Include="AccountMergeResult.cs" />
+    <Compile Include="AccountMergeResultCode.cs" />
+    <Compile Include="AllowTrustOp.cs" />
+    <Compile Include="AllowTrustResult.cs" />
+    <Compile Include="AllowTrustResultCode.cs" />
+    <Compile Include="Asset.cs" />
+    <Compile Include="AssetType.cs" />
+    <Compile Include="Auth.cs" />
+    <Compile Include="AuthCert.cs" />
+    <Compile Include="AuthenticatedMessage.cs" />
+    <Compile Include="BucketEntry.cs" />
+    <Compile Include="BucketEntryType.cs" />
+    <Compile Include="ByteReader.cs" />
+    <Compile Include="ByteWriter.cs" />
+    <Compile Include="ChangeTrustOp.cs" />
+    <Compile Include="ChangeTrustResult.cs" />
+    <Compile Include="ChangeTrustResultCode.cs" />
+    <Compile Include="ClaimOfferAtom.cs" />
+    <Compile Include="CreateAccountOp.cs" />
+    <Compile Include="CreateAccountResult.cs" />
+    <Compile Include="CreateAccountResultCode.cs" />
+    <Compile Include="CreatePassiveOfferOp.cs" />
+    <Compile Include="CryptoKeyType.cs" />
+    <Compile Include="Curve25519Public.cs" />
+    <Compile Include="Curve25519Secret.cs" />
+    <Compile Include="DecoratedSignature.cs" />
+    <Compile Include="DontHave.cs" />
+    <Compile Include="EnvelopeType.cs" />
+    <Compile Include="Error.cs" />
+    <Compile Include="ErrorCode.cs" />
+    <Compile Include="Hash.cs" />
+    <Compile Include="Hello.cs" />
+    <Compile Include="HmacSha256Key.cs" />
+    <Compile Include="HmacSha256Mac.cs" />
+    <Compile Include="IByteReader.cs" />
+    <Compile Include="IByteWriter.cs" />
+    <Compile Include="InflationPayout.cs" />
+    <Compile Include="InflationResult.cs" />
+    <Compile Include="InflationResultCode.cs" />
+    <Compile Include="Int32.cs" />
+    <Compile Include="Int64.cs" />
+    <Compile Include="IPAddrType.cs" />
+    <Compile Include="LedgerEntry.cs" />
+    <Compile Include="LedgerEntryChange.cs" />
+    <Compile Include="LedgerEntryChanges.cs" />
+    <Compile Include="LedgerEntryChangeType.cs" />
+    <Compile Include="LedgerEntryType.cs" />
+    <Compile Include="LedgerHeader.cs" />
+    <Compile Include="LedgerHeaderHistoryEntry.cs" />
+    <Compile Include="LedgerKey.cs" />
+    <Compile Include="LedgerSCPMessages.cs" />
+    <Compile Include="LedgerUpgrade.cs" />
+    <Compile Include="LedgerUpgradeType.cs" />
+    <Compile Include="ManageOfferEffect.cs" />
+    <Compile Include="ManageOfferOp.cs" />
+    <Compile Include="ManageOfferResult.cs" />
+    <Compile Include="ManageOfferResultCode.cs" />
+    <Compile Include="ManageOfferSuccessResult.cs" />
+    <Compile Include="Memo.cs" />
+    <Compile Include="MemoType.cs" />
+    <Compile Include="MessageType.cs" />
+    <Compile Include="NodeID.cs" />
+    <Compile Include="OfferEntry.cs" />
+    <Compile Include="OfferEntryFlags.cs" />
+    <Compile Include="Operation.cs" />
+    <Compile Include="OperationMeta.cs" />
+    <Compile Include="OperationResult.cs" />
+    <Compile Include="OperationResultCode.cs" />
+    <Compile Include="OperationType.cs" />
+    <Compile Include="PathPaymentOp.cs" />
+    <Compile Include="PathPaymentResult.cs" />
+    <Compile Include="PathPaymentResultCode.cs" />
+    <Compile Include="PaymentOp.cs" />
+    <Compile Include="PaymentResult.cs" />
+    <Compile Include="PaymentResultCode.cs" />
+    <Compile Include="PeerAddress.cs" />
+    <Compile Include="Price.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PublicKey.cs" />
+    <Compile Include="SCPBallot.cs" />
+    <Compile Include="SCPEnvelope.cs" />
+    <Compile Include="SCPHistoryEntry.cs" />
+    <Compile Include="SCPHistoryEntryV0.cs" />
+    <Compile Include="SCPNomination.cs" />
+    <Compile Include="SCPQuorumSet.cs" />
+    <Compile Include="SCPStatement.cs" />
+    <Compile Include="SCPStatementType.cs" />
+    <Compile Include="SequenceNumber.cs" />
+    <Compile Include="SetOptionsOp.cs" />
+    <Compile Include="SetOptionsResult.cs" />
+    <Compile Include="SetOptionsResultCode.cs" />
+    <Compile Include="Signature.cs" />
+    <Compile Include="SignatureHint.cs" />
+    <Compile Include="Signer.cs" />
+    <Compile Include="SimplePaymentResult.cs" />
+    <Compile Include="StellarMessage.cs" />
+    <Compile Include="StellarValue.cs" />
+    <Compile Include="String32.cs" />
+    <Compile Include="ThresholdIndexes.cs" />
+    <Compile Include="Thresholds.cs" />
+    <Compile Include="TimeBounds.cs" />
+    <Compile Include="Transaction.cs" />
+    <Compile Include="TransactionEnvelope.cs" />
+    <Compile Include="TransactionHistoryEntry.cs" />
+    <Compile Include="TransactionHistoryResultEntry.cs" />
+    <Compile Include="TransactionMeta.cs" />
+    <Compile Include="TransactionResult.cs" />
+    <Compile Include="TransactionResultCode.cs" />
+    <Compile Include="TransactionResultPair.cs" />
+    <Compile Include="TransactionResultSet.cs" />
+    <Compile Include="TransactionSet.cs" />
+    <Compile Include="TrustLineEntry.cs" />
+    <Compile Include="TrustLineFlags.cs" />
+    <Compile Include="Uint256.cs" />
+    <Compile Include="Uint32.cs" />
+    <Compile Include="Uint64.cs" />
+    <Compile Include="UpgradeType.cs" />
+    <Compile Include="Value.cs" />
+    <Compile Include="XdrEncoding.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

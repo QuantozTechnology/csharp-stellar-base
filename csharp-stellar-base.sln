@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csharp-quasar-base", "src\csharp-quasar-base\csharp-quasar-base.csproj", "{4BE09292-F507-4EE2-8AD3-C5983F72A734}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "XDR", "XDR", "{C2E9FA15-7C75-40C7-B4E5-F77C0A358432}"
+	ProjectSection(SolutionItems) = preProject
+		xdr\Stellar-ledger-entries.x = xdr\Stellar-ledger-entries.x
+		xdr\Stellar-ledger.x = xdr\Stellar-ledger.x
+		xdr\Stellar-overlay.x = xdr\Stellar-overlay.x
+		xdr\Stellar-SCP.x = xdr\Stellar-SCP.x
+		xdr\Stellar-transaction.x = xdr\Stellar-transaction.x
+		xdr\Stellar-types.x = xdr\Stellar-types.x
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "generated", "src\generated\generated.csproj", "{0FA7289E-A8BC-4D10-8EB0-520880AB9EDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csharp-quasar-base.Tests", "tests\csharp-quasar-base.Tests\csharp-quasar-base.Tests.csproj", "{509F9307-5022-4AD6-A073-A7AB1E31E2CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Examples", "src\Examples\Examples.csproj", "{712FA40B-C1E6-43AE-83DA-3BEA5D6851D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chaos.NaCl", "Chaos.NaCl\Chaos.NaCl\Chaos.NaCl.csproj", "{AE28FD14-7985-4707-A963-C94B8597AE50}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4BE09292-F507-4EE2-8AD3-C5983F72A734}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BE09292-F507-4EE2-8AD3-C5983F72A734}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BE09292-F507-4EE2-8AD3-C5983F72A734}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BE09292-F507-4EE2-8AD3-C5983F72A734}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FA7289E-A8BC-4D10-8EB0-520880AB9EDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FA7289E-A8BC-4D10-8EB0-520880AB9EDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FA7289E-A8BC-4D10-8EB0-520880AB9EDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FA7289E-A8BC-4D10-8EB0-520880AB9EDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{509F9307-5022-4AD6-A073-A7AB1E31E2CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{509F9307-5022-4AD6-A073-A7AB1E31E2CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{509F9307-5022-4AD6-A073-A7AB1E31E2CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{509F9307-5022-4AD6-A073-A7AB1E31E2CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{712FA40B-C1E6-43AE-83DA-3BEA5D6851D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{712FA40B-C1E6-43AE-83DA-3BEA5D6851D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{712FA40B-C1E6-43AE-83DA-3BEA5D6851D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{712FA40B-C1E6-43AE-83DA-3BEA5D6851D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE28FD14-7985-4707-A963-C94B8597AE50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE28FD14-7985-4707-A963-C94B8597AE50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE28FD14-7985-4707-A963-C94B8597AE50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE28FD14-7985-4707-A963-C94B8597AE50}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
