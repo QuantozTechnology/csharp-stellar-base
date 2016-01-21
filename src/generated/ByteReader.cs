@@ -5,7 +5,7 @@
 using System;
 using System.IO;
 
-namespace Quasar.Generated
+namespace Stellar.Generated
 {
 	public class ByteReader: IByteReader
 	{

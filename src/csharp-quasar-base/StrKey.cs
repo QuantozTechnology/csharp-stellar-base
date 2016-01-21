@@ -1,11 +1,11 @@
-﻿using Quasar.Generated;
+﻿using Stellar.Generated;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Quasar
+namespace Stellar
 {
     public enum VersionByte
     {

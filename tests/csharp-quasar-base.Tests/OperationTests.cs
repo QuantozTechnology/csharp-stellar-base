@@ -1,9 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Quasar;
+using Stellar;
 using System;
 using System.Text;
 
-namespace csharp_quasar_base.Tests
+namespace csharp_stellar_base.Tests
 {
     [TestClass]
     public class OperationTests
@@ -16,14 +16,14 @@ namespace csharp_quasar_base.Tests
             // GDW6AUTBXTOC7FIKUO5BOO3OGLK4SF7ZPOBLMQHMZDI45J2Z6VXRB5NR
             KeyPair destination = KeyPair.FromSeed("SDHZGHURAYXKU2KMVHPOXI6JG2Q4BSQUQCEOY72O3QQTCLR2T455PMII");
 
-            Quasar.Generated.Asset asset = Quasar.Asset.Native();
+            Stellar.Generated.Asset asset = Stellar.Asset.Native();
             long amount = 1000;
 
             PaymentOperation operation = new PaymentOperation.Builder(destination, asset, amount)
                 .SetSourceAccount(source)
                 .Build();
 
-            Quasar.Generated.Operation xdr = operation.ToXdr();
+            Stellar.Generated.Operation xdr = operation.ToXdr();
             PaymentOperation parsedOperation = (PaymentOperation)Operation.FromXdr(xdr);
 
             Assert.AreEqual(source.Address, parsedOperation.SourceAccount.Address);

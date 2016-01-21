@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Quasar
+namespace Stellar
 {
     public static class Base32Encoding
     {

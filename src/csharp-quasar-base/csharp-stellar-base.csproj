@@ -7,8 +7,8 @@
     <ProjectGuid>{4BE09292-F507-4EE2-8AD3-C5983F72A734}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Quasar</RootNamespace>
-    <AssemblyName>csharp-quasar-core</AssemblyName>
+    <RootNamespace>Stellar</RootNamespace>
+    <AssemblyName>csharp-stellar-core</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>

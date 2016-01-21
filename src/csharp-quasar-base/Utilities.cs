@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Quasar
+namespace Stellar
 {
     public static class Utilities
     {

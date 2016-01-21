@@ -1,4 +1,4 @@
-﻿namespace Quasar
+﻿namespace Stellar
 {
     public interface ITransactionBuilderAccount
     {

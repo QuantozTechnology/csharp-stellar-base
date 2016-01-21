@@ -1,7 +1,7 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
 
-namespace Quasar
+namespace Stellar
 {
     public static class Network
     {

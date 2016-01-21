@@ -1,8 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Quasar;
+using Stellar;
 using System;
 
-namespace csharp_quasar_base.Tests
+namespace csharp_stellar_base.Tests
 {
     [TestClass]
     public class StrKeyTests

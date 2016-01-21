@@ -5,7 +5,7 @@
 using System;
 using System.Text;
 
-namespace Quasar.Generated
+namespace Stellar.Generated
 {
 	public static class XdrEncoding
 	{

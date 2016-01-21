@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Quasar;
-using Quasar.Generated;
+using Stellar;
+using Stellar.Generated;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +13,7 @@ namespace Examples
 {
     class Program
     {
-        static string url = "{INSERT_NODE_URL(not the horizon url)}/tx?blob=";
+        static string url = "http://localhost:8080/tx?blob=";
 
         static string GetResult(string msg)
         {
@@ -36,8 +36,8 @@ namespace Examples
 
             source.IncrementSequenceNumber();
 
-            Quasar.Transaction transaction =
-                new Quasar.Transaction.Builder(source)
+            Stellar.Transaction transaction =
+                new Stellar.Transaction.Builder(source)
                 .AddOperation(operation)
                 .Build();
 
@@ -57,16 +57,16 @@ namespace Examples
         private static void DecodeTransactionResult(string result)
         {
             var bytes = Convert.FromBase64String(result);
-            var reader = new Quasar.Generated.ByteReader(bytes);
-            var txResult = Quasar.Generated.TransactionResult.Decode(reader);
+            var reader = new Stellar.Generated.ByteReader(bytes);
+            var txResult = Stellar.Generated.TransactionResult.Decode(reader);
 
         }
 
         private static void DecodeTxFee(string result)
         {
             var bytes = Convert.FromBase64String(result);
-            var reader = new Quasar.Generated.ByteReader(bytes);
-            var txResult = Quasar.Generated.LedgerEntryChanges.Decode(reader);
+            var reader = new Stellar.Generated.ByteReader(bytes);
+            var txResult = Stellar.Generated.LedgerEntryChanges.Decode(reader);
 
         }
 
@@ -86,10 +86,10 @@ namespace Examples
         {
             // get master
             var master = KeyPair.Master();
-            Account masterSource = new Account(master, 5);
+            Account masterSource = new Account(master, 1);
 
             // load asset
-            Quasar.Generated.Asset asset = Quasar.Asset.Native();
+            Stellar.Generated.Asset asset = Stellar.Asset.Native();
 
             var operation =
                 new PaymentOperation.Builder(kp, asset, amount)
@@ -98,8 +98,8 @@ namespace Examples
 
             masterSource.IncrementSequenceNumber();
 
-            Quasar.Transaction transaction =
-                new Quasar.Transaction.Builder(masterSource)
+            Stellar.Transaction transaction =
+                new Stellar.Transaction.Builder(masterSource)
                 .AddOperation(operation)
                 .Build();
 
@@ -114,20 +114,24 @@ namespace Examples
 
         static void Main(string[] args)
         {
-            Quasar.Network.CurrentNetwork = "...";
+            Stellar.Network.CurrentNetwork = "Test SDF Network ; September 2015";
 
-            var accountKP = KeyPair.FromAddress("GCP2KAN7Y5DKFRYRS5RIMUGEYI246VAB2PLGJRFFJBY3JSCMA6YOOL5P");
-            PaymentFromMaster(accountKP, 10 * Quasar.One.Value);
+            var master = KeyPair.Master();
+            Account masterSource = new Account(master, 0);
+
+            var dest = CreateRandomAccount(masterSource, 1000 * Stellar.One.Value);
+
+            PaymentFromMaster(dest, 10 * Stellar.One.Value);
 
             Console.Read();
         }
 
-        private static Quasar.Generated.Asset GetAsset(KeyPair master, string assetCode)
+        private static Stellar.Generated.Asset GetAsset(KeyPair master, string assetCode)
         {
-            return new Quasar.Generated.Asset
+            return new Stellar.Generated.Asset
             {
                 Discriminant = AssetType.Create(AssetType.AssetTypeEnum.ASSET_TYPE_CREDIT_ALPHANUM4),
-                AlphaNum4 = new Quasar.Generated.Asset.AssetAlphaNum4
+                AlphaNum4 = new Stellar.Generated.Asset.AssetAlphaNum4
                 {
                     AssetCode = ASCIIEncoding.ASCII.GetBytes(assetCode),
                     Issuer = master.AccountId

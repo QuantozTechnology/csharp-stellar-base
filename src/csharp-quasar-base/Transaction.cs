@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static Quasar.Preconditions;
+using static Stellar.Preconditions;
 
-namespace Quasar
+namespace Stellar
 {
     public class Transaction
     {
@@ -33,7 +33,7 @@ namespace Quasar
 
             mFee = operations.Length * BASE_FEE;
             mSignatures = new List<Generated.DecoratedSignature>();
-            Memo = memo != null ? memo : Quasar.Memo.None();
+            Memo = memo != null ? memo : Stellar.Memo.None();
         }
 
         /// <summary>

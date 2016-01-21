@@ -1,10 +1,10 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
-using Quasar.Generated;
+using Stellar.Generated;
 using System.Linq;
 using System;
 
-namespace Quasar
+namespace Stellar
 {
     public class KeyPair
     {

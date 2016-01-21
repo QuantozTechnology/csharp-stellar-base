@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csharp-quasar-base", "src\csharp-quasar-base\csharp-quasar-base.csproj", "{4BE09292-F507-4EE2-8AD3-C5983F72A734}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csharp-stellar-base", "src\csharp-quasar-base\csharp-stellar-base.csproj", "{4BE09292-F507-4EE2-8AD3-C5983F72A734}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "XDR", "XDR", "{C2E9FA15-7C75-40C7-B4E5-F77C0A358432}"
 	ProjectSection(SolutionItems) = preProject
@@ -17,7 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "XDR", "XDR", "{C2E9FA15-7C7
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "generated", "src\generated\generated.csproj", "{0FA7289E-A8BC-4D10-8EB0-520880AB9EDA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csharp-quasar-base.Tests", "tests\csharp-quasar-base.Tests\csharp-quasar-base.Tests.csproj", "{509F9307-5022-4AD6-A073-A7AB1E31E2CE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csharp-stellar-base.Tests", "tests\csharp-quasar-base.Tests\csharp-stellar-base.Tests.csproj", "{509F9307-5022-4AD6-A073-A7AB1E31E2CE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Examples", "src\Examples\Examples.csproj", "{712FA40B-C1E6-43AE-83DA-3BEA5D6851D8}"
 EndProject

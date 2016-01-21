@@ -4,7 +4,7 @@
 
 using System;
 
-namespace Quasar.Generated
+namespace Stellar.Generated
 {
 	public interface IByteReader
 	{

@@ -6,8 +6,8 @@
     <ProjectGuid>{509F9307-5022-4AD6-A073-A7AB1E31E2CE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>csharp_quasar_base.Tests</RootNamespace>
-    <AssemblyName>csharp-quasar-base.Tests</AssemblyName>
+    <RootNamespace>csharp_stellar_base.Tests</RootNamespace>
+    <AssemblyName>csharp-stellar-base.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -65,9 +65,9 @@
       <Project>{ae28fd14-7985-4707-a963-c94b8597ae50}</Project>
       <Name>Chaos.NaCl</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\src\csharp-quasar-base\csharp-quasar-base.csproj">
+    <ProjectReference Include="..\..\src\csharp-quasar-base\csharp-stellar-base.csproj">
       <Project>{4be09292-f507-4ee2-8ad3-c5983f72a734}</Project>
-      <Name>csharp-quasar-base</Name>
+      <Name>csharp-stellar-base</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\src\generated\generated.csproj">
       <Project>{0fa7289e-a8bc-4d10-8eb0-520880ab9eda}</Project>

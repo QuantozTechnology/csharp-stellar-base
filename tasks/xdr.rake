@@ -25,7 +25,7 @@ namespace :xdr do
     compilation = Xdrgen::Compilation.new(
       LOCAL_XDR_PATHS,
       output_dir: "src/generated",
-      namespace:  "Quasar.Generated",
+      namespace:  "Stellar.Generated",
       language:   :Dotnet
     )
     compilation.compile

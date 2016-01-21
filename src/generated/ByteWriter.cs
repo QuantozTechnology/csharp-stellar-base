@@ -6,7 +6,7 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 
-namespace Quasar.Generated
+namespace Stellar.Generated
 {
 	public class ByteWriter: IByteWriter
 	{

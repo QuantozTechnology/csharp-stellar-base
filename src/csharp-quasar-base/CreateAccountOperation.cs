@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Quasar.Generated;
-using static Quasar.Preconditions;
+using Stellar.Generated;
+using static Stellar.Preconditions;
 
-namespace Quasar
+namespace Stellar
 {
     public class CreateAccountOperation : Operation
     {

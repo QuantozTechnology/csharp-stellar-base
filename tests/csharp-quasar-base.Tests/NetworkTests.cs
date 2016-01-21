@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace csharp_quasar_base.Tests
+namespace csharp_stellar_base.Tests
 {
     [TestClass]
     public class NetworkTests
@@ -8,9 +8,9 @@ namespace csharp_quasar_base.Tests
         [TestMethod]
         public void NetworkId()
         {
-            Quasar.Network.CurrentNetwork = "ProjectQ";
+            Stellar.Network.CurrentNetwork = "ProjectQ";
 
-            string hexed = Chaos.NaCl.CryptoBytes.ToHexStringLower(Quasar.Network.CurrentNetworkId);
+            string hexed = Chaos.NaCl.CryptoBytes.ToHexStringLower(Stellar.Network.CurrentNetworkId);
 
             Assert.AreEqual(hexed, "89046661f1e50483904e55469c7131b76bcaca59d0db74e9c0c188b35c67b49a");
         }

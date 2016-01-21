@@ -1,6 +1,6 @@
-﻿using static Quasar.Preconditions;
+﻿using static Stellar.Preconditions;
 
-namespace Quasar
+namespace Stellar
 {
     public class Account : ITransactionBuilderAccount
     {

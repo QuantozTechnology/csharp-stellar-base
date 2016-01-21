@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Quasar
+namespace Stellar
 {
     public class NotEnoughSignaturesException : Exception
     {
