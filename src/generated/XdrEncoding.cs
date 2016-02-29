@@ -261,7 +261,6 @@ namespace Stellar.Generated
 		
 		public static void WriteString(IByteWriter w, string v)
         {
-            EncodeInt32(v.Length, w);
             WriteVarOpaque(w, (uint)v.Length, Encoding.ASCII.GetBytes(v));
         }
 		
