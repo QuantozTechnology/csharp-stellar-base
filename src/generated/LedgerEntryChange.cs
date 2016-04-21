@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  union LedgerEntryChange switch (LedgerEntryChangeType type)
 //  {
 //  case LEDGER_ENTRY_CREATED:
@@ -18,7 +17,6 @@
 //  case LEDGER_ENTRY_STATE:
 //      LedgerEntry state;
 //  };
-
 //  ===========================================================================
 public class LedgerEntryChange {
   public LedgerEntryChange () {}

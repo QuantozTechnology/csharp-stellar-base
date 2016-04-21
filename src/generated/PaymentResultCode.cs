@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  enum PaymentResultCode
 //  {
 //      // codes considered as "success" for the operation
@@ -23,7 +22,6 @@
 //      PAYMENT_LINE_FULL = -8,      // destination would go above their limit
 //      PAYMENT_NO_ISSUER = -9       // missing issuer on asset
 //  };
-
 //  ===========================================================================
 public class PaymentResultCode {
   public enum PaymentResultCodeEnum

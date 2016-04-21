@@ -6,9 +6,7 @@
 
 
 // === xdr source ============================================================
-
 //  typedef opaque Signature<64>;
-
 //  ===========================================================================
 public class Signature {
   public byte[] InnerValue { get; set; } = default(byte[]);

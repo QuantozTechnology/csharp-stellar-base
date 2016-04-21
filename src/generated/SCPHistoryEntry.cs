@@ -6,13 +6,11 @@
 
 
 // === xdr source ============================================================
-
 //  union SCPHistoryEntry switch (int v)
 //  {
 //  case 0:
 //      SCPHistoryEntryV0 v0;
 //  };
-
 //  ===========================================================================
 public class SCPHistoryEntry {
   public SCPHistoryEntry () {}

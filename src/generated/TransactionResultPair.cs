@@ -6,13 +6,11 @@
 
 
 // === xdr source ============================================================
-
 //  struct TransactionResultPair
 //  {
 //      Hash transactionHash;
 //      TransactionResult result; // result for the transaction
 //  };
-
 //  ===========================================================================
 public class TransactionResultPair {
   public TransactionResultPair () {}

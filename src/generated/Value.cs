@@ -6,9 +6,7 @@
 
 
 // === xdr source ============================================================
-
 //  typedef opaque Value<>;
-
 //  ===========================================================================
 public class Value {
   public byte[] InnerValue { get; set; } = default(byte[]);

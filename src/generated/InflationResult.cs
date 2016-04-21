@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  union InflationResult switch (InflationResultCode code)
 //  {
 //  case INFLATION_SUCCESS:
@@ -14,7 +13,6 @@
 //  default:
 //      void;
 //  };
-
 //  ===========================================================================
 public class InflationResult {
   public InflationResult () {}

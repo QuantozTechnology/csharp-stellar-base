@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  enum MessageType
 //  {
 //      ERROR_MSG = 0,
@@ -30,7 +29,6 @@
 //      // new messages
 //      HELLO = 13
 //  };
-
 //  ===========================================================================
 public class MessageType {
   public enum MessageTypeEnum

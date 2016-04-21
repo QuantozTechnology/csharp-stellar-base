@@ -6,14 +6,12 @@
 
 
 // === xdr source ============================================================
-
 //  enum ManageOfferEffect
 //  {
 //      MANAGE_OFFER_CREATED = 0,
 //      MANAGE_OFFER_UPDATED = 1,
 //      MANAGE_OFFER_DELETED = 2
 //  };
-
 //  ===========================================================================
 public class ManageOfferEffect {
   public enum ManageOfferEffectEnum

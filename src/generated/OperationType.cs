@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  enum OperationType
 //  {
 //      CREATE_ACCOUNT = 0,
@@ -18,9 +17,9 @@
 //      CHANGE_TRUST = 6,
 //      ALLOW_TRUST = 7,
 //      ACCOUNT_MERGE = 8,
-//      INFLATION = 9
+//      INFLATION = 9,
+//      MANAGE_DATA = 10
 //  };
-
 //  ===========================================================================
 public class OperationType {
   public enum OperationTypeEnum
@@ -35,6 +34,7 @@ public class OperationType {
   ALLOW_TRUST = 7,
   ACCOUNT_MERGE = 8,
   INFLATION = 9,
+  MANAGE_DATA = 10,
   }
 
   public OperationTypeEnum InnerValue { get; set; } = default(OperationTypeEnum);
@@ -59,6 +59,7 @@ public class OperationType {
       case 7: return Create(OperationTypeEnum.ALLOW_TRUST);
       case 8: return Create(OperationTypeEnum.ACCOUNT_MERGE);
       case 9: return Create(OperationTypeEnum.INFLATION);
+      case 10: return Create(OperationTypeEnum.MANAGE_DATA);
 			default:
 			  throw new System.Exception("Unknown enum value: " + value);
 		  }

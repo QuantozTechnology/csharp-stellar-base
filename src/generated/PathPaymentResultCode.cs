@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  enum PathPaymentResultCode
 //  {
 //      // codes considered as "success" for the operation
@@ -26,7 +25,6 @@
 //      PATH_PAYMENT_OFFER_CROSS_SELF = -11,  // would cross one of its own offers
 //      PATH_PAYMENT_OVER_SENDMAX = -12       // could not satisfy sendmax
 //  };
-
 //  ===========================================================================
 public class PathPaymentResultCode {
   public enum PathPaymentResultCodeEnum

@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  struct TransactionHistoryEntry
 //  {
 //      uint32 ledgerSeq;
@@ -20,7 +19,6 @@
 //      }
 //      ext;
 //  };
-
 //  ===========================================================================
 public class TransactionHistoryEntry {
   public TransactionHistoryEntry () {}

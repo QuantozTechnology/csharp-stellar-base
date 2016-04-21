@@ -6,14 +6,12 @@
 
 
 // === xdr source ============================================================
-
 //  enum LedgerUpgradeType
 //  {
 //      LEDGER_UPGRADE_VERSION = 1,
 //      LEDGER_UPGRADE_BASE_FEE = 2,
 //      LEDGER_UPGRADE_MAX_TX_SET_SIZE = 3
 //  };
-
 //  ===========================================================================
 public class LedgerUpgradeType {
   public enum LedgerUpgradeTypeEnum

@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  enum AllowTrustResultCode
 //  {
 //      // codes considered as "success" for the operation
@@ -18,7 +17,6 @@
 //      ALLOW_TRUST_TRUST_NOT_REQUIRED = -3,
 //      ALLOW_TRUST_CANT_REVOKE = -4 // source account can't revoke trust
 //  };
-
 //  ===========================================================================
 public class AllowTrustResultCode {
   public enum AllowTrustResultCodeEnum

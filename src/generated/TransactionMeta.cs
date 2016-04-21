@@ -6,13 +6,11 @@
 
 
 // === xdr source ============================================================
-
 //  union TransactionMeta switch (int v)
 //  {
 //  case 0:
 //      OperationMeta operations<>;
 //  };
-
 //  ===========================================================================
 public class TransactionMeta {
   public TransactionMeta () {}

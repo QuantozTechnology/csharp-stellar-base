@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  struct LedgerHeaderHistoryEntry
 //  {
 //      Hash hash;
@@ -20,7 +19,6 @@
 //      }
 //      ext;
 //  };
-
 //  ===========================================================================
 public class LedgerHeaderHistoryEntry {
   public LedgerHeaderHistoryEntry () {}

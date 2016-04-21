@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  struct SCPStatement
 //  {
 //      NodeID nodeID;    // v
@@ -45,7 +44,6 @@
 //      }
 //      pledges;
 //  };
-
 //  ===========================================================================
 public class SCPStatement {
   public SCPStatement () {}

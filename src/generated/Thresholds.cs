@@ -6,9 +6,7 @@
 
 
 // === xdr source ============================================================
-
 //  typedef opaque Thresholds[4];
-
 //  ===========================================================================
 public class Thresholds {
   public byte[] InnerValue { get; set; } = default(byte[]);

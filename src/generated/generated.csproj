@@ -69,6 +69,8 @@
     <Compile Include="CryptoKeyType.cs" />
     <Compile Include="Curve25519Public.cs" />
     <Compile Include="Curve25519Secret.cs" />
+    <Compile Include="DataEntry.cs" />
+    <Compile Include="DataValue.cs" />
     <Compile Include="DecoratedSignature.cs" />
     <Compile Include="DontHave.cs" />
     <Compile Include="EnvelopeType.cs" />
@@ -97,6 +99,9 @@
     <Compile Include="LedgerSCPMessages.cs" />
     <Compile Include="LedgerUpgrade.cs" />
     <Compile Include="LedgerUpgradeType.cs" />
+    <Compile Include="ManageDataOp.cs" />
+    <Compile Include="ManageDataResult.cs" />
+    <Compile Include="ManageDataResultCode.cs" />
     <Compile Include="ManageOfferEffect.cs" />
     <Compile Include="ManageOfferOp.cs" />
     <Compile Include="ManageOfferResult.cs" />
@@ -142,6 +147,7 @@
     <Compile Include="StellarMessage.cs" />
     <Compile Include="StellarValue.cs" />
     <Compile Include="String32.cs" />
+    <Compile Include="String64.cs" />
     <Compile Include="ThresholdIndexes.cs" />
     <Compile Include="Thresholds.cs" />
     <Compile Include="TimeBounds.cs" />

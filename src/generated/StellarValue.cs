@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  struct StellarValue
 //  {
 //      Hash txSetHash;   // transaction set to apply to previous ledger
@@ -27,7 +26,6 @@
 //      }
 //      ext;
 //  };
-
 //  ===========================================================================
 public class StellarValue {
   public StellarValue () {}

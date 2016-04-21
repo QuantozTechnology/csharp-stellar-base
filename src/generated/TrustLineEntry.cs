@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  struct TrustLineEntry
 //  {
 //      AccountID accountID; // account this trustline belongs to
@@ -25,7 +24,6 @@
 //      }
 //      ext;
 //  };
-
 //  ===========================================================================
 public class TrustLineEntry {
   public TrustLineEntry () {}

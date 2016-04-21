@@ -6,9 +6,7 @@
 
 
 // === xdr source ============================================================
-
 //  typedef unsigned hyper uint64;
-
 //  ===========================================================================
 public class Uint64 {
   public ulong InnerValue { get; set; } = default(ulong);

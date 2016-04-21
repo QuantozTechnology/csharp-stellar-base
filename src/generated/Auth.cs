@@ -6,14 +6,12 @@
 
 
 // === xdr source ============================================================
-
 //  struct Auth
 //  {
 //      // Empty message, just to confirm
 //      // establishment of MAC keys.
 //      int unused;
 //  };
-
 //  ===========================================================================
 public class Auth {
   public Auth () {}

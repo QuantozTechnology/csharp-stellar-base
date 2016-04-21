@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  struct Operation
 //  {
 //      // sourceAccount is the account used to run the operation
@@ -36,10 +35,11 @@
 //          AccountID destination;
 //      case INFLATION:
 //          void;
+//      case MANAGE_DATA:
+//          ManageDataOp manageDataOp;
 //      }
 //      body;
 //  };
-
 //  ===========================================================================
 public class Operation {
   public Operation () {}
@@ -76,6 +76,7 @@ public class Operation {
     public ChangeTrustOp ChangeTrustOp { get; set; } = default(ChangeTrustOp);
     public AllowTrustOp AllowTrustOp { get; set; } = default(AllowTrustOp);
     public AccountID Destination { get; set; } = default(AccountID);
+    public ManageDataOp ManageDataOp { get; set; } = default(ManageDataOp);
     public static void Encode(IByteWriter stream, OperationBody encodedOperationBody) {
     XdrEncoding.EncodeInt32((int)encodedOperationBody.Discriminant.InnerValue, stream);
     switch (encodedOperationBody.Discriminant.InnerValue) {
@@ -107,6 +108,9 @@ public class Operation {
     AccountID.Encode(stream, encodedOperationBody.Destination);
     break;
     case OperationType.OperationTypeEnum.INFLATION:
+    break;
+    case OperationType.OperationTypeEnum.MANAGE_DATA:
+    ManageDataOp.Encode(stream, encodedOperationBody.ManageDataOp);
     break;
     }
     }
@@ -142,6 +146,9 @@ public class Operation {
     decodedOperationBody.Destination = AccountID.Decode(stream);
     break;
     case OperationType.OperationTypeEnum.INFLATION:
+    break;
+    case OperationType.OperationTypeEnum.MANAGE_DATA:
+    decodedOperationBody.ManageDataOp = ManageDataOp.Decode(stream);
     break;
     }
       return decodedOperationBody;

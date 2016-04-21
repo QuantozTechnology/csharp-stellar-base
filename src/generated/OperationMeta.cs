@@ -6,12 +6,10 @@
 
 
 // === xdr source ============================================================
-
 //  struct OperationMeta
 //  {
 //      LedgerEntryChanges changes;
 //  };
-
 //  ===========================================================================
 public class OperationMeta {
   public OperationMeta () {}

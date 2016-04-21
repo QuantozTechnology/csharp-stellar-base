@@ -20,8 +20,8 @@ namespace csharp_stellar_base.Tests
         [ExpectedException(typeof(FormatException))]
         public void TestDecodeInvalidVersionByte()
         {
-            String address = "GCZHXL5HXQX5ABDM26LHYRCQZ5OJFHLOPLZX47WEBP3V2PF5AVFK2A5D";
-            StrKey.DecodeCheck(VersionByte.Seed, address);
+            String accountId = "GCZHXL5HXQX5ABDM26LHYRCQZ5OJFHLOPLZX47WEBP3V2PF5AVFK2A5D";
+            StrKey.DecodeCheck(VersionByte.Seed, accountId);
         }
 
         [TestMethod]

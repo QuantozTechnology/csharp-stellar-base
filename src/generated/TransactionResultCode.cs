@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  enum TransactionResultCode
 //  {
 //      txSUCCESS = 0, // all operations succeeded
@@ -25,7 +24,6 @@
 //      txBAD_AUTH_EXTRA = -10,      // unused signatures attached to transaction
 //      txINTERNAL_ERROR = -11       // an unknown error occured
 //  };
-
 //  ===========================================================================
 public class TransactionResultCode {
   public enum TransactionResultCodeEnum

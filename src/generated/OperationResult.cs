@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  union OperationResult switch (OperationResultCode code)
 //  {
 //  case opINNER:
@@ -32,12 +31,13 @@
 //          AccountMergeResult accountMergeResult;
 //      case INFLATION:
 //          InflationResult inflationResult;
+//      case MANAGE_DATA:
+//          ManageDataResult manageDataResult;
 //      }
 //      tr;
 //  default:
 //      void;
 //  };
-
 //  ===========================================================================
 public class OperationResult {
   public OperationResult () {}
@@ -79,6 +79,7 @@ public class OperationResult {
     public AllowTrustResult AllowTrustResult { get; set; } = default(AllowTrustResult);
     public AccountMergeResult AccountMergeResult { get; set; } = default(AccountMergeResult);
     public InflationResult InflationResult { get; set; } = default(InflationResult);
+    public ManageDataResult ManageDataResult { get; set; } = default(ManageDataResult);
     public static void Encode(IByteWriter stream, OperationResultTr encodedOperationResultTr) {
     XdrEncoding.EncodeInt32((int)encodedOperationResultTr.Discriminant.InnerValue, stream);
     switch (encodedOperationResultTr.Discriminant.InnerValue) {
@@ -111,6 +112,9 @@ public class OperationResult {
     break;
     case OperationType.OperationTypeEnum.INFLATION:
     InflationResult.Encode(stream, encodedOperationResultTr.InflationResult);
+    break;
+    case OperationType.OperationTypeEnum.MANAGE_DATA:
+    ManageDataResult.Encode(stream, encodedOperationResultTr.ManageDataResult);
     break;
     }
     }
@@ -147,6 +151,9 @@ public class OperationResult {
     break;
     case OperationType.OperationTypeEnum.INFLATION:
     decodedOperationResultTr.InflationResult = InflationResult.Decode(stream);
+    break;
+    case OperationType.OperationTypeEnum.MANAGE_DATA:
+    decodedOperationResultTr.ManageDataResult = ManageDataResult.Decode(stream);
     break;
     }
       return decodedOperationResultTr;

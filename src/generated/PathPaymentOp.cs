@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  struct PathPaymentOp
 //  {
 //      Asset sendAsset; // asset we pay with
@@ -20,7 +19,6 @@
 //  
 //      Asset path<5>; // additional hops it must go through to get there
 //  };
-
 //  ===========================================================================
 public class PathPaymentOp {
   public PathPaymentOp () {}

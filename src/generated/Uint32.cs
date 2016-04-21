@@ -6,9 +6,7 @@
 
 
 // === xdr source ============================================================
-
 //  typedef unsigned int uint32;
-
 //  ===========================================================================
 public class Uint32 {
   public uint InnerValue { get; set; } = default(uint);

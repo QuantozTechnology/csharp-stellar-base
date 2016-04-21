@@ -6,12 +6,10 @@
 
 
 // === xdr source ============================================================
-
 //  enum CryptoKeyType
 //  {
 //      KEY_TYPE_ED25519 = 0
 //  };
-
 //  ===========================================================================
 public class CryptoKeyType {
   public enum CryptoKeyTypeEnum

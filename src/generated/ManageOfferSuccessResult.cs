@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  struct ManageOfferSuccessResult
 //  {
 //      // offers that got claimed while creating this offer
@@ -22,7 +21,6 @@
 //      }
 //      offer;
 //  };
-
 //  ===========================================================================
 public class ManageOfferSuccessResult {
   public ManageOfferSuccessResult () {}

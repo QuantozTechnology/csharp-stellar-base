@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  enum AccountFlags
 //  { // masks for each flag
 //  
@@ -20,7 +19,6 @@
 //      // Once set, causes all AUTH_* flags to be read-only
 //      AUTH_IMMUTABLE_FLAG = 0x4
 //  };
-
 //  ===========================================================================
 public class AccountFlags {
   public enum AccountFlagsEnum

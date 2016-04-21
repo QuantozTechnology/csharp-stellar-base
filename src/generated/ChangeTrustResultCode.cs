@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  enum ChangeTrustResultCode
 //  {
 //      // codes considered as "success" for the operation
@@ -18,7 +17,6 @@
 //                                       // cannot create with a limit of 0
 //      CHANGE_TRUST_LOW_RESERVE = -4 // not enough funds to create a new trust line
 //  };
-
 //  ===========================================================================
 public class ChangeTrustResultCode {
   public enum ChangeTrustResultCodeEnum

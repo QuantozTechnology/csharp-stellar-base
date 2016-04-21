@@ -6,13 +6,11 @@
 
 
 // === xdr source ============================================================
-
 //  struct CreateAccountOp
 //  {
 //      AccountID destination; // account to create
 //      int64 startingBalance; // amount they end up with
 //  };
-
 //  ===========================================================================
 public class CreateAccountOp {
   public CreateAccountOp () {}

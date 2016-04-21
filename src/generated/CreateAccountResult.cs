@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  union CreateAccountResult switch (CreateAccountResultCode code)
 //  {
 //  case CREATE_ACCOUNT_SUCCESS:
@@ -14,7 +13,6 @@
 //  default:
 //      void;
 //  };
-
 //  ===========================================================================
 public class CreateAccountResult {
   public CreateAccountResult () {}

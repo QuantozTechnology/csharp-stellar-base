@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  struct ClaimOfferAtom
 //  {
 //      // emitted to identify the offer
@@ -21,7 +20,6 @@
 //      Asset assetBought;
 //      int64 amountBought;
 //  };
-
 //  ===========================================================================
 public class ClaimOfferAtom {
   public ClaimOfferAtom () {}

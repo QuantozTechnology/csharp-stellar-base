@@ -6,14 +6,12 @@
 
 
 // === xdr source ============================================================
-
 //  struct SCPQuorumSet
 //  {
 //      uint32 threshold;
 //      PublicKey validators<>;
 //      SCPQuorumSet innerSets<>;
 //  };
-
 //  ===========================================================================
 public class SCPQuorumSet {
   public SCPQuorumSet () {}

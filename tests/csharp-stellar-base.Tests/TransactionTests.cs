@@ -17,12 +17,12 @@ namespace csharp_stellar_base.Tests
             Stellar.Network.CurrentNetwork = "";
         }
 
-        public Stellar.Transaction SampleTransaction(string destAddress)
+        public Stellar.Transaction SampleTransaction(string destAccountId)
         {
             Stellar.Network.CurrentNetwork = "";
 
             var master = KeyPair.Master();
-            var dest = string.IsNullOrEmpty(destAddress) ? KeyPair.Random() : KeyPair.FromAddress(destAddress);
+            var dest = string.IsNullOrEmpty(destAccountId) ? KeyPair.Random() : KeyPair.FromAccountId(destAccountId);
 
             var sourceAccount = new Account(master, 1);
 

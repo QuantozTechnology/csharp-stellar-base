@@ -6,13 +6,11 @@
 
 
 // === xdr source ============================================================
-
 //  struct TransactionSet
 //  {
 //      Hash previousLedgerHash;
 //      TransactionEnvelope txs<MAX_TX_PER_LEDGER>;
 //  };
-
 //  ===========================================================================
 public class TransactionSet {
   public TransactionSet () {}

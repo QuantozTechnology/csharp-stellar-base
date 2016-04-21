@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  struct ManageOfferOp
 //  {
 //      Asset selling;
@@ -17,7 +16,6 @@
 //      // 0=create a new offer, otherwise edit an existing offer
 //      uint64 offerID;
 //  };
-
 //  ===========================================================================
 public class ManageOfferOp {
   public ManageOfferOp () {}

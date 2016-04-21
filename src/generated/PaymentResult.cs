@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  union PaymentResult switch (PaymentResultCode code)
 //  {
 //  case PAYMENT_SUCCESS:
@@ -14,7 +13,6 @@
 //  default:
 //      void;
 //  };
-
 //  ===========================================================================
 public class PaymentResult {
   public PaymentResult () {}

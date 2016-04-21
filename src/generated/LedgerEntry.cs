@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  struct LedgerEntry
 //  {
 //      uint32 lastModifiedLedgerSeq; // ledger the LedgerEntry was last changed
@@ -19,6 +18,8 @@
 //          TrustLineEntry trustLine;
 //      case OFFER:
 //          OfferEntry offer;
+//      case DATA:
+//          DataEntry data;
 //      }
 //      data;
 //  
@@ -30,7 +31,6 @@
 //      }
 //      ext;
 //  };
-
 //  ===========================================================================
 public class LedgerEntry {
   public LedgerEntry () {}
@@ -56,6 +56,7 @@ public class LedgerEntry {
     public AccountEntry Account { get; set; } = default(AccountEntry);
     public TrustLineEntry TrustLine { get; set; } = default(TrustLineEntry);
     public OfferEntry Offer { get; set; } = default(OfferEntry);
+    public DataEntry Data { get; set; } = default(DataEntry);
     public static void Encode(IByteWriter stream, LedgerEntryData encodedLedgerEntryData) {
     XdrEncoding.EncodeInt32((int)encodedLedgerEntryData.Discriminant.InnerValue, stream);
     switch (encodedLedgerEntryData.Discriminant.InnerValue) {
@@ -67,6 +68,9 @@ public class LedgerEntry {
     break;
     case LedgerEntryType.LedgerEntryTypeEnum.OFFER:
     OfferEntry.Encode(stream, encodedLedgerEntryData.Offer);
+    break;
+    case LedgerEntryType.LedgerEntryTypeEnum.DATA:
+    DataEntry.Encode(stream, encodedLedgerEntryData.Data);
     break;
     }
     }
@@ -82,6 +86,9 @@ public class LedgerEntry {
     break;
     case LedgerEntryType.LedgerEntryTypeEnum.OFFER:
     decodedLedgerEntryData.Offer = OfferEntry.Decode(stream);
+    break;
+    case LedgerEntryType.LedgerEntryTypeEnum.DATA:
+    decodedLedgerEntryData.Data = DataEntry.Decode(stream);
     break;
     }
       return decodedLedgerEntryData;

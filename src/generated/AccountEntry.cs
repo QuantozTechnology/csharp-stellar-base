@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  struct AccountEntry
 //  {
 //      AccountID accountID;      // master public key for this account
@@ -33,7 +32,6 @@
 //      }
 //      ext;
 //  };
-
 //  ===========================================================================
 public class AccountEntry {
   public AccountEntry () {}

@@ -6,9 +6,7 @@
 
 
 // === xdr source ============================================================
-
 //  typedef string string32<32>;
-
 //  ===========================================================================
 public class String32 {
   public string InnerValue { get; set; } = default(string);

@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  union AuthenticatedMessage switch (uint32 v)
 //  {
 //  case 0:
@@ -17,7 +16,6 @@
 //     HmacSha256Mac mac;
 //      } v0;
 //  };
-
 //  ===========================================================================
 public class AuthenticatedMessage {
   public AuthenticatedMessage () {}

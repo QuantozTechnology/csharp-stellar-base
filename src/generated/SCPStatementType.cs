@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  enum SCPStatementType
 //  {
 //      SCP_ST_PREPARE = 0,
@@ -14,7 +13,6 @@
 //      SCP_ST_EXTERNALIZE = 2,
 //      SCP_ST_NOMINATE = 3
 //  };
-
 //  ===========================================================================
 public class SCPStatementType {
   public enum SCPStatementTypeEnum

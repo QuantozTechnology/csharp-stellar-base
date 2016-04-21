@@ -15,9 +15,15 @@ namespace Stellar
 
     public class StrKey
     {
-        public static string EncodeStellarAddress(byte[] data)
+        public static string EncodeStellarAccountId(byte[] data)
         {
             return EncodeCheck(VersionByte.AccountId, data);
+        }
+
+        [Obsolete("Use AccountId instead.")]
+        public static string EncodeStellarAddress(byte[] data)
+        {
+            return EncodeStellarAccountId(data);
         }
 
         public static string EncodeStellarSecretSeed(byte[] data)
@@ -25,9 +31,15 @@ namespace Stellar
             return EncodeCheck(VersionByte.Seed, data);
         }
 
-        public static byte[] DecodeStellarAddress(string data)
+        public static byte[] DecodeStellarAccountId(string data)
         {
             return DecodeCheck(VersionByte.AccountId, data);
+        }
+
+        [Obsolete("Use AccountId instead.")]
+        public static byte[] DecodeStellarAddress(string data)
+        {
+            return DecodeStellarAccountId(data);
         }
 
         public static byte[] DecodeStellarSecretSeed(string data)

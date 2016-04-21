@@ -6,13 +6,11 @@
 
 
 // === xdr source ============================================================
-
 //  enum OfferEntryFlags
 //  {
 //      // issuer has authorized account to perform transactions with its credit
 //      PASSIVE_FLAG = 1
 //  };
-
 //  ===========================================================================
 public class OfferEntryFlags {
   public enum OfferEntryFlagsEnum

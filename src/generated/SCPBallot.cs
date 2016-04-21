@@ -6,13 +6,11 @@
 
 
 // === xdr source ============================================================
-
 //  struct SCPBallot
 //  {
 //      uint32 counter; // n
 //      Value value;    // x
 //  };
-
 //  ===========================================================================
 public class SCPBallot {
   public SCPBallot () {}

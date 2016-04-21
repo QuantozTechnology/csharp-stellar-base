@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  enum CreateAccountResultCode
 //  {
 //      // codes considered as "success" for the operation
@@ -19,7 +18,6 @@
 //          -3, // would create an account below the min reserve
 //      CREATE_ACCOUNT_ALREADY_EXIST = -4 // account already exists
 //  };
-
 //  ===========================================================================
 public class CreateAccountResultCode {
   public enum CreateAccountResultCodeEnum

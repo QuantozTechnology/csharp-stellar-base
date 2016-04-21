@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  enum AccountMergeResultCode
 //  {
 //      // codes considered as "success" for the operation
@@ -17,7 +16,6 @@
 //      ACCOUNT_MERGE_IMMUTABLE_SET = -3,  // source account has AUTH_IMMUTABLE set
 //      ACCOUNT_MERGE_HAS_SUB_ENTRIES = -4 // account has trust lines/offers
 //  };
-
 //  ===========================================================================
 public class AccountMergeResultCode {
   public enum AccountMergeResultCodeEnum

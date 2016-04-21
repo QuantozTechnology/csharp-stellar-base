@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  union ManageOfferResult switch (ManageOfferResultCode code)
 //  {
 //  case MANAGE_OFFER_SUCCESS:
@@ -14,7 +13,6 @@
 //  default:
 //      void;
 //  };
-
 //  ===========================================================================
 public class ManageOfferResult {
   public ManageOfferResult () {}
