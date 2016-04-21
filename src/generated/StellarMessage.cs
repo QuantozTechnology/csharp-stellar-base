@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  union StellarMessage switch (MessageType type)
 //  {
 //  case ERROR_MSG:
@@ -40,7 +39,6 @@
 //  case GET_SCP_STATE:
 //      uint32 getSCPLedgerSeq; // ledger seq requested ; if 0, requests the latest
 //  };
-
 //  ===========================================================================
 public class StellarMessage {
   public StellarMessage () {}

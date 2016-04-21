@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  union BucketEntry switch (BucketEntryType type)
 //  {
 //  case LIVEENTRY:
@@ -15,7 +14,6 @@
 //  case DEADENTRY:
 //      LedgerKey deadEntry;
 //  };
-
 //  ===========================================================================
 public class BucketEntry {
   public BucketEntry () {}

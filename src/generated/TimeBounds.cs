@@ -6,13 +6,11 @@
 
 
 // === xdr source ============================================================
-
 //  struct TimeBounds
 //  {
 //      uint64 minTime;
 //      uint64 maxTime;
 //  };
-
 //  ===========================================================================
 public class TimeBounds {
   public TimeBounds () {}

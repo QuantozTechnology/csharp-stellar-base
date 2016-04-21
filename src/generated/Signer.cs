@@ -6,13 +6,11 @@
 
 
 // === xdr source ============================================================
-
 //  struct Signer
 //  {
 //      AccountID pubKey;
 //      uint32 weight; // really only need 1byte
 //  };
-
 //  ===========================================================================
 public class Signer {
   public Signer () {}

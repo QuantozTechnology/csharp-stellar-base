@@ -48,7 +48,7 @@ namespace Examples
             string response = GetResult(message);
 
             Console.WriteLine(response);
-            Console.WriteLine(dest.Address);
+            Console.WriteLine(dest.AccountId);
             Console.WriteLine(dest.Seed);
 
             return dest;

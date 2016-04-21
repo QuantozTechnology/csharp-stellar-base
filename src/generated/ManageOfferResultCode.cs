@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  enum ManageOfferResultCode
 //  {
 //      // codes considered as "success" for the operation
@@ -29,7 +28,6 @@
 //  
 //      MANAGE_OFFER_LOW_RESERVE = -12 // not enough funds to create a new Offer
 //  };
-
 //  ===========================================================================
 public class ManageOfferResultCode {
   public enum ManageOfferResultCodeEnum

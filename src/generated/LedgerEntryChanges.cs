@@ -6,9 +6,7 @@
 
 
 // === xdr source ============================================================
-
 //  typedef LedgerEntryChange LedgerEntryChanges<>;
-
 //  ===========================================================================
 public class LedgerEntryChanges {
   public LedgerEntryChange[] InnerValue { get; set; } = default(LedgerEntryChange[]);

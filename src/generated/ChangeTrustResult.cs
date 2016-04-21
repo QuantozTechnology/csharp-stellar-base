@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  union ChangeTrustResult switch (ChangeTrustResultCode code)
 //  {
 //  case CHANGE_TRUST_SUCCESS:
@@ -14,7 +13,6 @@
 //  default:
 //      void;
 //  };
-
 //  ===========================================================================
 public class ChangeTrustResult {
   public ChangeTrustResult () {}

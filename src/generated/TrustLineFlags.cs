@@ -6,13 +6,11 @@
 
 
 // === xdr source ============================================================
-
 //  enum TrustLineFlags
 //  {
 //      // issuer has authorized account to perform transactions with its credit
 //      AUTHORIZED_FLAG = 1
 //  };
-
 //  ===========================================================================
 public class TrustLineFlags {
   public enum TrustLineFlagsEnum

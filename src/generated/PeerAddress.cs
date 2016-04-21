@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  struct PeerAddress
 //  {
 //      union switch (IPAddrType type)
@@ -20,7 +19,6 @@
 //      uint32 port;
 //      uint32 numFailures;
 //  };
-
 //  ===========================================================================
 public class PeerAddress {
   public PeerAddress () {}

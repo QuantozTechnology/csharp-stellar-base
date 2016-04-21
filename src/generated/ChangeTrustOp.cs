@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  struct ChangeTrustOp
 //  {
 //      Asset line;
@@ -14,7 +13,6 @@
 //      // if limit is set to 0, deletes the trust line
 //      int64 limit;
 //  };
-
 //  ===========================================================================
 public class ChangeTrustOp {
   public ChangeTrustOp () {}

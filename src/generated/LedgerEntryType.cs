@@ -6,14 +6,13 @@
 
 
 // === xdr source ============================================================
-
 //  enum LedgerEntryType
 //  {
 //      ACCOUNT = 0,
 //      TRUSTLINE = 1,
-//      OFFER = 2
+//      OFFER = 2,
+//      DATA = 3
 //  };
-
 //  ===========================================================================
 public class LedgerEntryType {
   public enum LedgerEntryTypeEnum
@@ -21,6 +20,7 @@ public class LedgerEntryType {
   ACCOUNT = 0,
   TRUSTLINE = 1,
   OFFER = 2,
+  DATA = 3,
   }
 
   public LedgerEntryTypeEnum InnerValue { get; set; } = default(LedgerEntryTypeEnum);
@@ -38,6 +38,7 @@ public class LedgerEntryType {
       case 0: return Create(LedgerEntryTypeEnum.ACCOUNT);
       case 1: return Create(LedgerEntryTypeEnum.TRUSTLINE);
       case 2: return Create(LedgerEntryTypeEnum.OFFER);
+      case 3: return Create(LedgerEntryTypeEnum.DATA);
 			default:
 			  throw new System.Exception("Unknown enum value: " + value);
 		  }

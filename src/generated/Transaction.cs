@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  struct Transaction
 //  {
 //      // account used to run the transaction
@@ -33,7 +32,6 @@
 //      }
 //      ext;
 //  };
-
 //  ===========================================================================
 public class Transaction {
   public Transaction () {}

@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  enum SetOptionsResultCode
 //  {
 //      // codes considered as "success" for the operation
@@ -22,7 +21,6 @@
 //      SET_OPTIONS_BAD_SIGNER = -8,             // signer cannot be masterkey
 //      SET_OPTIONS_INVALID_HOME_DOMAIN = -9     // malformed home domain
 //  };
-
 //  ===========================================================================
 public class SetOptionsResultCode {
   public enum SetOptionsResultCodeEnum

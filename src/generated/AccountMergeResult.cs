@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  union AccountMergeResult switch (AccountMergeResultCode code)
 //  {
 //  case ACCOUNT_MERGE_SUCCESS:
@@ -14,7 +13,6 @@
 //  default:
 //      void;
 //  };
-
 //  ===========================================================================
 public class AccountMergeResult {
   public AccountMergeResult () {}

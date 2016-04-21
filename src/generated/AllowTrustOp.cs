@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  struct AllowTrustOp
 //  {
 //      AccountID trustor;
@@ -25,7 +24,6 @@
 //  
 //      bool authorize;
 //  };
-
 //  ===========================================================================
 public class AllowTrustOp {
   public AllowTrustOp () {}

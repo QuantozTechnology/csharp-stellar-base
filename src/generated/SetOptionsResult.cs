@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  union SetOptionsResult switch (SetOptionsResultCode code)
 //  {
 //  case SET_OPTIONS_SUCCESS:
@@ -14,7 +13,6 @@
 //  default:
 //      void;
 //  };
-
 //  ===========================================================================
 public class SetOptionsResult {
   public SetOptionsResult () {}

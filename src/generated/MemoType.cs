@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  enum MemoType
 //  {
 //      MEMO_NONE = 0,
@@ -15,7 +14,6 @@
 //      MEMO_HASH = 3,
 //      MEMO_RETURN = 4
 //  };
-
 //  ===========================================================================
 public class MemoType {
   public enum MemoTypeEnum

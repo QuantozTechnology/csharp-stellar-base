@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  union PathPaymentResult switch (PathPaymentResultCode code)
 //  {
 //  case PATH_PAYMENT_SUCCESS:
@@ -20,7 +19,6 @@
 //  default:
 //      void;
 //  };
-
 //  ===========================================================================
 public class PathPaymentResult {
   public PathPaymentResult () {}

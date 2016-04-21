@@ -6,9 +6,7 @@
 
 
 // === xdr source ============================================================
-
 //  typedef uint64 SequenceNumber;
-
 //  ===========================================================================
 public class SequenceNumber {
   public Uint64 InnerValue { get; set; } = default(Uint64);

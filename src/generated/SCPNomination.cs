@@ -6,14 +6,12 @@
 
 
 // === xdr source ============================================================
-
 //  struct SCPNomination
 //  {
 //      Hash quorumSetHash; // D
 //      Value votes<>;      // X
 //      Value accepted<>;   // Y
 //  };
-
 //  ===========================================================================
 public class SCPNomination {
   public SCPNomination () {}

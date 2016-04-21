@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  union Memo switch (MemoType type)
 //  {
 //  case MEMO_NONE:
@@ -20,7 +19,6 @@
 //  case MEMO_RETURN:
 //      Hash retHash; // the hash of the tx you are rejecting
 //  };
-
 //  ===========================================================================
 public class Memo {
   public Memo () {}

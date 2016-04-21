@@ -6,13 +6,11 @@
 
 
 // === xdr source ============================================================
-
 //  union PublicKey switch (CryptoKeyType type)
 //  {
 //  case KEY_TYPE_ED25519:
 //      uint256 ed25519;
 //  };
-
 //  ===========================================================================
 public class PublicKey {
   public PublicKey () {}

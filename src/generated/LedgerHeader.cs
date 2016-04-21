@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  struct LedgerHeader
 //  {
 //      uint32 ledgerVersion;    // the protocol version of the ledger
@@ -44,7 +43,6 @@
 //      }
 //      ext;
 //  };
-
 //  ===========================================================================
 public class LedgerHeader {
   public LedgerHeader () {}

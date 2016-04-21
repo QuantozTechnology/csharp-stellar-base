@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  union Asset switch (AssetType type)
 //  {
 //  case ASSET_TYPE_NATIVE: // Not credit
@@ -28,7 +27,6 @@
 //  
 //      // add other asset types here in the future
 //  };
-
 //  ===========================================================================
 public class Asset {
   public Asset () {}

@@ -6,13 +6,11 @@
 
 
 // === xdr source ============================================================
-
 //  struct TransactionEnvelope
 //  {
 //      Transaction tx;
 //      DecoratedSignature signatures<20>;
 //  };
-
 //  ===========================================================================
 public class TransactionEnvelope {
   public TransactionEnvelope () {}

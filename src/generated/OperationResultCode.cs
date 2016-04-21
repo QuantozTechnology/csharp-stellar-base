@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  enum OperationResultCode
 //  {
 //      opINNER = 0, // inner object result is valid
@@ -14,7 +13,6 @@
 //      opBAD_AUTH = -1,  // too few valid signatures / wrong network
 //      opNO_ACCOUNT = -2 // source account was not found
 //  };
-
 //  ===========================================================================
 public class OperationResultCode {
   public enum OperationResultCodeEnum

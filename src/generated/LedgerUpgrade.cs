@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  union LedgerUpgrade switch (LedgerUpgradeType type)
 //  {
 //  case LEDGER_UPGRADE_VERSION:
@@ -16,7 +15,6 @@
 //  case LEDGER_UPGRADE_MAX_TX_SET_SIZE:
 //      uint32 newMaxTxSetSize; // update maxTxSetSize
 //  };
-
 //  ===========================================================================
 public class LedgerUpgrade {
   public LedgerUpgrade () {}

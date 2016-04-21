@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  struct TransactionResult
 //  {
 //      int64 feeCharged; // actual fee charged for the transaction
@@ -29,7 +28,6 @@
 //      }
 //      ext;
 //  };
-
 //  ===========================================================================
 public class TransactionResult {
   public TransactionResult () {}

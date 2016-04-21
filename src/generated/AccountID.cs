@@ -6,9 +6,7 @@
 
 
 // === xdr source ============================================================
-
 //  typedef PublicKey AccountID;
-
 //  ===========================================================================
 public class AccountID {
   public PublicKey InnerValue { get; set; } = default(PublicKey);

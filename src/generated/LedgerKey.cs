@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  union LedgerKey switch (LedgerEntryType type)
 //  {
 //  case ACCOUNT:
@@ -28,8 +27,14 @@
 //          AccountID sellerID;
 //          uint64 offerID;
 //      } offer;
+//  
+//  case DATA:
+//      struct
+//      {
+//          AccountID accountID;
+//          string64 dataName;
+//      } data;
 //  };
-
 //  ===========================================================================
 public class LedgerKey {
   public LedgerKey () {}
@@ -37,6 +42,7 @@ public class LedgerKey {
   public LedgerKeyAccount Account { get; set; } = default(LedgerKeyAccount);
   public LedgerKeyTrustLine TrustLine { get; set; } = default(LedgerKeyTrustLine);
   public LedgerKeyOffer Offer { get; set; } = default(LedgerKeyOffer);
+  public LedgerKeyData Data { get; set; } = default(LedgerKeyData);
   public static void Encode(IByteWriter stream, LedgerKey encodedLedgerKey) {
   XdrEncoding.EncodeInt32((int)encodedLedgerKey.Discriminant.InnerValue, stream);
   switch (encodedLedgerKey.Discriminant.InnerValue) {
@@ -48,6 +54,9 @@ public class LedgerKey {
   break;
   case LedgerEntryType.LedgerEntryTypeEnum.OFFER:
   LedgerKeyOffer.Encode(stream, encodedLedgerKey.Offer);
+  break;
+  case LedgerEntryType.LedgerEntryTypeEnum.DATA:
+  LedgerKeyData.Encode(stream, encodedLedgerKey.Data);
   break;
   }
   }
@@ -63,6 +72,9 @@ public class LedgerKey {
   break;
   case LedgerEntryType.LedgerEntryTypeEnum.OFFER:
   decodedLedgerKey.Offer = LedgerKeyOffer.Decode(stream);
+  break;
+  case LedgerEntryType.LedgerEntryTypeEnum.DATA:
+  decodedLedgerKey.Data = LedgerKeyData.Decode(stream);
   break;
   }
     return decodedLedgerKey;
@@ -110,6 +122,22 @@ public class LedgerKey {
       decodedLedgerKeyOffer.SellerID = AccountID.Decode(stream);
       decodedLedgerKeyOffer.OfferID = Uint64.Decode(stream);
       return decodedLedgerKeyOffer;
+    }
+
+  }
+  public class LedgerKeyData {
+    public LedgerKeyData () {}
+    public AccountID AccountID { get; set; }
+    public String64 DataName { get; set; }
+    public static void Encode(IByteWriter stream, LedgerKeyData encodedLedgerKeyData) {
+      AccountID.Encode(stream, encodedLedgerKeyData.AccountID);
+      String64.Encode(stream, encodedLedgerKeyData.DataName);
+    }
+    public static LedgerKeyData Decode(IByteReader stream) {
+      LedgerKeyData decodedLedgerKeyData = new LedgerKeyData();
+      decodedLedgerKeyData.AccountID = AccountID.Decode(stream);
+      decodedLedgerKeyData.DataName = String64.Decode(stream);
+      return decodedLedgerKeyData;
     }
 
   }

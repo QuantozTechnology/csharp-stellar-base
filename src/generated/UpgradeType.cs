@@ -6,9 +6,7 @@
 
 
 // === xdr source ============================================================
-
 //  typedef opaque UpgradeType<128>;
-
 //  ===========================================================================
 public class UpgradeType {
   public byte[] InnerValue { get; set; } = default(byte[]);

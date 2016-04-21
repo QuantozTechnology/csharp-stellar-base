@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  enum ThresholdIndexes
 //  {
 //      THRESHOLD_MASTER_WEIGHT = 0,
@@ -14,7 +13,6 @@
 //      THRESHOLD_MED = 2,
 //      THRESHOLD_HIGH = 3
 //  };
-
 //  ===========================================================================
 public class ThresholdIndexes {
   public enum ThresholdIndexesEnum

@@ -166,10 +166,15 @@ namespace Stellar
             return new KeyPair(bytes);
         }
 
-        public static KeyPair FromAddress(string address)
+        public static KeyPair FromAccountId(string accountId)
         {
-            var bytes = StrKey.DecodeCheck(VersionByte.AccountId, address);
+            var bytes = StrKey.DecodeCheck(VersionByte.AccountId, accountId);
             return FromPublicKey(bytes);
+        }
+
+        public static KeyPair FromAddress(string accountId)
+        {
+            return FromAccountId(accountId);
         }
 
         public static KeyPair Random()

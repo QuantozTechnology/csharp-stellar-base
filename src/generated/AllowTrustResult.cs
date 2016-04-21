@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  union AllowTrustResult switch (AllowTrustResultCode code)
 //  {
 //  case ALLOW_TRUST_SUCCESS:
@@ -14,7 +13,6 @@
 //  default:
 //      void;
 //  };
-
 //  ===========================================================================
 public class AllowTrustResult {
   public AllowTrustResult () {}

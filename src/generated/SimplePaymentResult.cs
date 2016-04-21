@@ -6,14 +6,12 @@
 
 
 // === xdr source ============================================================
-
 //  struct SimplePaymentResult
 //  {
 //      AccountID destination;
 //      Asset asset;
 //      int64 amount;
 //  };
-
 //  ===========================================================================
 public class SimplePaymentResult {
   public SimplePaymentResult () {}

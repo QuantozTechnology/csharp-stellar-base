@@ -6,9 +6,7 @@
 
 
 // === xdr source ============================================================
-
 //  typedef PublicKey NodeID;
-
 //  ===========================================================================
 public class NodeID {
   public PublicKey InnerValue { get; set; } = default(PublicKey);

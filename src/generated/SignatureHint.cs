@@ -6,9 +6,7 @@
 
 
 // === xdr source ============================================================
-
 //  typedef opaque SignatureHint[4];
-
 //  ===========================================================================
 public class SignatureHint {
   public byte[] InnerValue { get; set; } = default(byte[]);

@@ -6,13 +6,11 @@
 
 
 // === xdr source ============================================================
-
 //  enum BucketEntryType
 //  {
 //      LIVEENTRY = 0,
 //      DEADENTRY = 1
 //  };
-
 //  ===========================================================================
 public class BucketEntryType {
   public enum BucketEntryTypeEnum

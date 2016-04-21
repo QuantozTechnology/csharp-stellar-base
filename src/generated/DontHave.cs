@@ -6,13 +6,11 @@
 
 
 // === xdr source ============================================================
-
 //  struct DontHave
 //  {
 //      MessageType type;
 //      uint256 reqHash;
 //  };
-
 //  ===========================================================================
 public class DontHave {
   public DontHave () {}

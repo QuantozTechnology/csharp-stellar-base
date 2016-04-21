@@ -6,14 +6,12 @@
 
 
 // === xdr source ============================================================
-
 //  struct PaymentOp
 //  {
 //      AccountID destination; // recipient of the payment
 //      Asset asset;           // what they end up with
 //      int64 amount;          // amount they end up with
 //  };
-
 //  ===========================================================================
 public class PaymentOp {
   public PaymentOp () {}

@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  enum ErrorCode
 //  {
 //      ERR_MISC = 0, // Unspecific error
@@ -15,7 +14,6 @@
 //      ERR_AUTH = 3, // Authentication failure
 //      ERR_LOAD = 4  // System overloaded
 //  };
-
 //  ===========================================================================
 public class ErrorCode {
   public enum ErrorCodeEnum

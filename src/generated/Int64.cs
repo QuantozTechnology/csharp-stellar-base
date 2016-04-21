@@ -6,9 +6,7 @@
 
 
 // === xdr source ============================================================
-
 //  typedef hyper int64;
-
 //  ===========================================================================
 public class Int64 {
   public long InnerValue { get; set; } = default(long);

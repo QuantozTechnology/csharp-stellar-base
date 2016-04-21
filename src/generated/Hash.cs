@@ -6,9 +6,7 @@
 
 
 // === xdr source ============================================================
-
 //  typedef opaque Hash[32];
-
 //  ===========================================================================
 public class Hash {
   public byte[] InnerValue { get; set; } = default(byte[]);

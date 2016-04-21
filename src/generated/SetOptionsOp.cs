@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  struct SetOptionsOp
 //  {
 //      AccountID* inflationDest; // sets the inflation destination
@@ -26,7 +25,6 @@
 //      // signer is deleted if the weight is 0
 //      Signer* signer;
 //  };
-
 //  ===========================================================================
 public class SetOptionsOp {
   public SetOptionsOp () {}

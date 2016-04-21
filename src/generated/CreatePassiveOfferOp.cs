@@ -6,7 +6,6 @@
 
 
 // === xdr source ============================================================
-
 //  struct CreatePassiveOfferOp
 //  {
 //      Asset selling; // A
@@ -14,7 +13,6 @@
 //      int64 amount;  // amount taker gets. if set to 0, delete the offer
 //      Price price;   // cost of A in terms of B
 //  };
-
 //  ===========================================================================
 public class CreatePassiveOfferOp {
   public CreatePassiveOfferOp () {}
