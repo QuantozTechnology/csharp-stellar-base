@@ -50,7 +50,7 @@ namespace Stellar
             switch (body.Discriminant.InnerValue)
             {
                 case Generated.OperationType.OperationTypeEnum.CREATE_ACCOUNT:
-                    //operation = new CreateAccountOperation.Builder(body.getCreateAccountOp()).build();
+                    //operation = new CreateAccountOperation.Builder(body.CreateAccountOp).Build();
                     break;
                 case Generated.OperationType.OperationTypeEnum.PAYMENT:
                     operation = new PaymentOperation.Builder(body.PaymentOp).Build();
@@ -68,7 +68,7 @@ namespace Stellar
                     //operation = new SetOptionsOperation.Builder(body.getSetOptionsOp()).build();
                     break;
                 case Generated.OperationType.OperationTypeEnum.CHANGE_TRUST:
-                    //operation = new ChangeTrustOperation.Builder(body.getChangeTrustOp()).build();
+                    operation = new ChangeTrustOperation.Builder(body.ChangeTrustOp).Build();
                     break;
                 case Generated.OperationType.OperationTypeEnum.ALLOW_TRUST:
                     //operation = new AllowTrustOperation.Builder(body.getAllowTrustOp()).build();

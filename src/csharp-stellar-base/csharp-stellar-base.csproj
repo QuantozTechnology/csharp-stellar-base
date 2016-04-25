@@ -46,6 +46,7 @@
     <Compile Include="ArrayExtensions.cs" />
     <Compile Include="Asset.cs" />
     <Compile Include="Base32Encoding.cs" />
+    <Compile Include="ChangeTrustOperation.cs" />
     <Compile Include="CreateAccountOperation.cs" />
     <Compile Include="KeyPair.cs" />
     <Compile Include="Memo.cs" />
