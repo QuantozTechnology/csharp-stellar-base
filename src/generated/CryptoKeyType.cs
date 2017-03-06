@@ -8,13 +8,17 @@
 // === xdr source ============================================================
 //  enum CryptoKeyType
 //  {
-//      KEY_TYPE_ED25519 = 0
+//      KEY_TYPE_ED25519 = 0,
+//      KEY_TYPE_PRE_AUTH_TX = 1,
+//      KEY_TYPE_HASH_X = 2
 //  };
 //  ===========================================================================
 public class CryptoKeyType {
   public enum CryptoKeyTypeEnum
   {
   KEY_TYPE_ED25519 = 0,
+  KEY_TYPE_PRE_AUTH_TX = 1,
+  KEY_TYPE_HASH_X = 2,
   }
 
   public CryptoKeyTypeEnum InnerValue { get; set; } = default(CryptoKeyTypeEnum);
@@ -30,6 +34,8 @@ public class CryptoKeyType {
     int value = XdrEncoding.DecodeInt32(stream);
     switch (value) {
       case 0: return Create(CryptoKeyTypeEnum.KEY_TYPE_ED25519);
+      case 1: return Create(CryptoKeyTypeEnum.KEY_TYPE_PRE_AUTH_TX);
+      case 2: return Create(CryptoKeyTypeEnum.KEY_TYPE_HASH_X);
 			default:
 			  throw new System.Exception("Unknown enum value: " + value);
 		  }

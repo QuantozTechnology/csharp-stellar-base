@@ -8,25 +8,64 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Examples
 {
+    using UrlContent = KeyValuePair<string, string>;
     class Program
     {
-        static string url = "http://localhost:8080/tx?blob=";
+        static string horizon_url = "https://horizon-testnet.stellar.org/";
+        static string network_passphrase = "Test SDF Network ; September 2015";
+
+        static void Main(string[] args)
+        {
+            Stellar.Network.CurrentNetwork = network_passphrase;
+
+            // seed from account on the testnetwork
+            var myKeyPair = KeyPair.FromSeed("SDMJOANF6CDRHWVG3N6I34VHFEWD2KK5I5SPGFU5FDB6SY5FJNXTWN24");
+            Account myAccount = new Account(myKeyPair, GetSequence(myKeyPair.Address));
+
+            var randomAccountKeyPair = CreateRandomAccount(myAccount, 1000 * Stellar.One.Value);
+
+            Payment(myKeyPair, randomAccountKeyPair, 10 * Stellar.One.Value);
+
+            // Wait for input to prevent the cmd window from closing
+            Console.Read();
+        }
 
         static string GetResult(string msg)
         {
             using (var client = new HttpClient())
             {
-                string response = client.GetStringAsync(url + WebUtility.UrlEncode(msg)).Result;
+                string response = client.GetStringAsync(horizon_url + WebUtility.UrlEncode(msg)).Result;
                 return response;
+            }
+        }
+
+        static HttpResponseMessage PostResult(string tx)
+        {
+            using (var client = new HttpClient())
+            {
+                var body = new List<UrlContent>();
+                body.Add(new UrlContent("tx", tx));
+                var formUrlEncodedContent = new FormUrlEncodedContent(body);
+                return client.PostAsync(horizon_url + "transactions", formUrlEncodedContent).Result;
+            }
+        }
+
+        private static long GetSequence(string address)
+        {
+            using (var client = new HttpClient())
+            {
+                string response = client.GetStringAsync(horizon_url + "accounts/" + address).Result;
+                var json = JObject.Parse(response);
+                return (long)json["sequence"];
             }
         }
 
         static KeyPair CreateRandomAccount(Account source, long nativeAmount)
         {
-            var master = KeyPair.Master();
             var dest = KeyPair.Random();
 
             var operation =
@@ -43,12 +82,12 @@ namespace Examples
 
             transaction.Sign(source.KeyPair);
 
-            string message = transaction.ToEnvelopeXdrBase64();
+            var tx = transaction.ToEnvelopeXdrBase64();
 
-            string response = GetResult(message);
+            var response = PostResult(tx);
 
-            Console.WriteLine(response);
-            Console.WriteLine(dest.AccountId);
+            Console.WriteLine("response:" + response.ReasonPhrase);
+            Console.WriteLine(dest.Address);
             Console.WriteLine(dest.Seed);
 
             return dest;
@@ -70,60 +109,32 @@ namespace Examples
 
         }
 
-        private static void CreateAccountSample()
+        static void Payment(KeyPair from, KeyPair to, long amount)
         {
-            // get master
-            var master = KeyPair.Master();
-            Account masterSource = new Account(master, 1);
-
-            // create account
-            var green = CreateRandomAccount(masterSource, 1000);
-
-            Console.Read();
-        }
-
-        static void PaymentFromMaster(KeyPair kp, long amount)
-        {
-            // get master
-            var master = KeyPair.Master();
-            Account masterSource = new Account(master, 1);
+            Account source = new Account(from, GetSequence(from.Address));
 
             // load asset
             Stellar.Generated.Asset asset = Stellar.Asset.Native();
 
             var operation =
-                new PaymentOperation.Builder(kp, asset, amount)
-                .SetSourceAccount(masterSource.KeyPair)
+                new PaymentOperation.Builder(to, asset, amount)
+                .SetSourceAccount(from)
                 .Build();
 
-            masterSource.IncrementSequenceNumber();
+            source.IncrementSequenceNumber();
 
             Stellar.Transaction transaction =
-                new Stellar.Transaction.Builder(masterSource)
+                new Stellar.Transaction.Builder(source)
                 .AddOperation(operation)
                 .Build();
 
-            transaction.Sign(masterSource.KeyPair);
+            transaction.Sign(source.KeyPair);
 
-            string message = transaction.ToEnvelopeXdrBase64();
+            var tx = transaction.ToEnvelopeXdrBase64();
 
-            string response = GetResult(message);
+            var response = PostResult(tx);
 
-            Console.WriteLine(response);
-        }
-
-        static void Main(string[] args)
-        {
-            Stellar.Network.CurrentNetwork = "Test SDF Network ; September 2015";
-
-            var master = KeyPair.Master();
-            Account masterSource = new Account(master, 0);
-
-            var dest = CreateRandomAccount(masterSource, 1000 * Stellar.One.Value);
-
-            PaymentFromMaster(dest, 10 * Stellar.One.Value);
-
-            Console.Read();
+            Console.WriteLine(response.ReasonPhrase);
         }
 
         private static Stellar.Generated.Asset GetAsset(KeyPair master, string assetCode)

@@ -128,6 +128,7 @@
     <Compile Include="Price.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PublicKey.cs" />
+    <Compile Include="PublicKeyType.cs" />
     <Compile Include="SCPBallot.cs" />
     <Compile Include="SCPEnvelope.cs" />
     <Compile Include="SCPHistoryEntry.cs" />
@@ -143,6 +144,8 @@
     <Compile Include="Signature.cs" />
     <Compile Include="SignatureHint.cs" />
     <Compile Include="Signer.cs" />
+    <Compile Include="SignerKey.cs" />
+    <Compile Include="SignerKeyType.cs" />
     <Compile Include="SimplePaymentResult.cs" />
     <Compile Include="StellarMessage.cs" />
     <Compile Include="StellarValue.cs" />
@@ -161,6 +164,7 @@
     <Compile Include="TransactionResultPair.cs" />
     <Compile Include="TransactionResultSet.cs" />
     <Compile Include="TransactionSet.cs" />
+    <Compile Include="TransactionSignaturePayload.cs" />
     <Compile Include="TrustLineEntry.cs" />
     <Compile Include="TrustLineFlags.cs" />
     <Compile Include="Uint256.cs" />

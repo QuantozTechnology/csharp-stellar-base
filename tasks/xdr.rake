@@ -19,7 +19,7 @@ namespace :xdr do
   task :generate do
     require "pathname"
     require "xdrgen"
-    require 'fileutils'
+    require "fileutils"
     FileUtils.rm_rf "generated"
 
     compilation = Xdrgen::Compilation.new(

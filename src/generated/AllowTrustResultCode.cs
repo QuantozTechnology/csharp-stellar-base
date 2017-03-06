@@ -15,7 +15,8 @@
 //      ALLOW_TRUST_NO_TRUST_LINE = -2, // trustor does not have a trustline
 //                                      // source account does not require trust
 //      ALLOW_TRUST_TRUST_NOT_REQUIRED = -3,
-//      ALLOW_TRUST_CANT_REVOKE = -4 // source account can't revoke trust
+//      ALLOW_TRUST_CANT_REVOKE = -4, // source account can't revoke trust,
+//      ALLOW_TRUST_SELF_NOT_ALLOWED = -5 // trusting self is not allowed
 //  };
 //  ===========================================================================
 public class AllowTrustResultCode {
@@ -26,6 +27,7 @@ public class AllowTrustResultCode {
   ALLOW_TRUST_NO_TRUST_LINE = -2,
   ALLOW_TRUST_TRUST_NOT_REQUIRED = -3,
   ALLOW_TRUST_CANT_REVOKE = -4,
+  ALLOW_TRUST_SELF_NOT_ALLOWED = -5,
   }
 
   public AllowTrustResultCodeEnum InnerValue { get; set; } = default(AllowTrustResultCodeEnum);
@@ -45,6 +47,7 @@ public class AllowTrustResultCode {
       case -2: return Create(AllowTrustResultCodeEnum.ALLOW_TRUST_NO_TRUST_LINE);
       case -3: return Create(AllowTrustResultCodeEnum.ALLOW_TRUST_TRUST_NOT_REQUIRED);
       case -4: return Create(AllowTrustResultCodeEnum.ALLOW_TRUST_CANT_REVOKE);
+      case -5: return Create(AllowTrustResultCodeEnum.ALLOW_TRUST_SELF_NOT_ALLOWED);
 			default:
 			  throw new System.Exception("Unknown enum value: " + value);
 		  }

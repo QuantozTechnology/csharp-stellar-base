@@ -6,29 +6,29 @@
 
 
 // === xdr source ============================================================
-//  union PublicKey switch (CryptoKeyType type)
+//  union PublicKey switch (PublicKeyType type)
 //  {
-//  case KEY_TYPE_ED25519:
+//  case PUBLIC_KEY_TYPE_ED25519:
 //      uint256 ed25519;
 //  };
 //  ===========================================================================
 public class PublicKey {
   public PublicKey () {}
-  public CryptoKeyType Discriminant { get; set; } = new CryptoKeyType();
+  public PublicKeyType Discriminant { get; set; } = new PublicKeyType();
   public Uint256 Ed25519 { get; set; } = default(Uint256);
   public static void Encode(IByteWriter stream, PublicKey encodedPublicKey) {
   XdrEncoding.EncodeInt32((int)encodedPublicKey.Discriminant.InnerValue, stream);
   switch (encodedPublicKey.Discriminant.InnerValue) {
-  case CryptoKeyType.CryptoKeyTypeEnum.KEY_TYPE_ED25519:
+  case PublicKeyType.PublicKeyTypeEnum.PUBLIC_KEY_TYPE_ED25519:
   Uint256.Encode(stream, encodedPublicKey.Ed25519);
   break;
   }
   }
   public static PublicKey Decode(IByteReader stream) {
     PublicKey decodedPublicKey = new PublicKey();
-  decodedPublicKey.Discriminant = CryptoKeyType.Decode(stream);
+  decodedPublicKey.Discriminant = PublicKeyType.Decode(stream);
   switch (decodedPublicKey.Discriminant.InnerValue) {
-  case CryptoKeyType.CryptoKeyTypeEnum.KEY_TYPE_ED25519:
+  case PublicKeyType.PublicKeyTypeEnum.PUBLIC_KEY_TYPE_ED25519:
   decodedPublicKey.Ed25519 = Uint256.Decode(stream);
   break;
   }

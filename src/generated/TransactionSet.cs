@@ -9,7 +9,7 @@
 //  struct TransactionSet
 //  {
 //      Hash previousLedgerHash;
-//      TransactionEnvelope txs<MAX_TX_PER_LEDGER>;
+//      TransactionEnvelope txs<>;
 //  };
 //  ===========================================================================
 public class TransactionSet {

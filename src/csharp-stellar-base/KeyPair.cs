@@ -20,7 +20,7 @@ namespace Stellar
                 {
                     InnerValue = new Generated.PublicKey
                     {
-                        Discriminant = CryptoKeyType.Create(CryptoKeyType.CryptoKeyTypeEnum.KEY_TYPE_ED25519),
+                        Discriminant = PublicKeyType.Create(PublicKeyType.PublicKeyTypeEnum.PUBLIC_KEY_TYPE_ED25519),
                         Ed25519 = new Uint256(PublicKey)
                     }
                 };
@@ -134,7 +134,8 @@ namespace Stellar
 
         public bool Verify(byte[] signature, byte[] message)
         {
-            try {
+            try
+            {
                 return Chaos.NaCl.Ed25519.Verify(signature, message, PublicKey);
             }
             catch

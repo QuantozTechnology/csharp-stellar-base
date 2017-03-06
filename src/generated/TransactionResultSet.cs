@@ -8,7 +8,7 @@
 // === xdr source ============================================================
 //  struct TransactionResultSet
 //  {
-//      TransactionResultPair results<MAX_TX_PER_LEDGER>;
+//      TransactionResultPair results<>;
 //  };
 //  ===========================================================================
 public class TransactionResultSet {

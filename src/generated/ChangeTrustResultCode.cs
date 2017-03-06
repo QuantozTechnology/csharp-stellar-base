@@ -15,7 +15,8 @@
 //      CHANGE_TRUST_NO_ISSUER = -2,     // could not find issuer
 //      CHANGE_TRUST_INVALID_LIMIT = -3, // cannot drop limit below balance
 //                                       // cannot create with a limit of 0
-//      CHANGE_TRUST_LOW_RESERVE = -4 // not enough funds to create a new trust line
+//      CHANGE_TRUST_LOW_RESERVE = -4, // not enough funds to create a new trust line,
+//      CHANGE_TRUST_SELF_NOT_ALLOWED = -5 // trusting self is not allowed
 //  };
 //  ===========================================================================
 public class ChangeTrustResultCode {
@@ -26,6 +27,7 @@ public class ChangeTrustResultCode {
   CHANGE_TRUST_NO_ISSUER = -2,
   CHANGE_TRUST_INVALID_LIMIT = -3,
   CHANGE_TRUST_LOW_RESERVE = -4,
+  CHANGE_TRUST_SELF_NOT_ALLOWED = -5,
   }
 
   public ChangeTrustResultCodeEnum InnerValue { get; set; } = default(ChangeTrustResultCodeEnum);
@@ -45,6 +47,7 @@ public class ChangeTrustResultCode {
       case -2: return Create(ChangeTrustResultCodeEnum.CHANGE_TRUST_NO_ISSUER);
       case -3: return Create(ChangeTrustResultCodeEnum.CHANGE_TRUST_INVALID_LIMIT);
       case -4: return Create(ChangeTrustResultCodeEnum.CHANGE_TRUST_LOW_RESERVE);
+      case -5: return Create(ChangeTrustResultCodeEnum.CHANGE_TRUST_SELF_NOT_ALLOWED);
 			default:
 			  throw new System.Exception("Unknown enum value: " + value);
 		  }
