@@ -76,6 +76,9 @@ namespace Stellar
                 case Generated.OperationType.OperationTypeEnum.ACCOUNT_MERGE:
                     //operation = new AccountMergeOperation.Builder(body).build();
                     break;
+                case Generated.OperationType.OperationTypeEnum.MANAGE_DATA:
+                    operation = new ManageDataOperation.Builder(body.ManageDataOp).Build();
+                    break;
                 default:
                     throw new Exception("Unknown operation body " + body.Discriminant.InnerValue);
             }

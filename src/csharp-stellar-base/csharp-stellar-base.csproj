@@ -49,6 +49,7 @@
     <Compile Include="ChangeTrustOperation.cs" />
     <Compile Include="CreateAccountOperation.cs" />
     <Compile Include="KeyPair.cs" />
+    <Compile Include="ManageDataOperation.cs" />
     <Compile Include="Memo.cs" />
     <Compile Include="Network.cs" />
     <Compile Include="NotEnoughSignaturesException.cs" />

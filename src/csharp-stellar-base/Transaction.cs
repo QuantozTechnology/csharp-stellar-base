@@ -9,7 +9,7 @@ namespace Stellar
 {
     public class Transaction
     {
-        private int BASE_FEE = 100;
+        private int BASE_FEE = 0;
 
         private int mFee;
         private Operation[] mOperations;
@@ -108,7 +108,7 @@ namespace Stellar
                 Operations = operations,
                 Memo = Memo,
                 Ext = ext,
-                //TimeBounds = null,
+                TimeBounds = null,
             };
 
             return transaction;

@@ -5,7 +5,7 @@ namespace Stellar
 {
     public static class Network
     {
-        public static string CurrentNetwork { get; set; } = "";
+        public static string CurrentNetwork { get; set; } = "Test SDF Network ; September 2015";
         public static byte[] CurrentNetworkId
         {
             get
