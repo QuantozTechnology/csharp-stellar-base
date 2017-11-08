@@ -10,7 +10,7 @@
 //  ===========================================================================
 public class UpgradeType {
   public byte[] InnerValue { get; set; } = default(byte[]);
-        
+            
   public UpgradeType() { }
   public UpgradeType(byte[] UpgradeType)
   {

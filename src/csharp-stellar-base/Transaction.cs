@@ -16,11 +16,11 @@ namespace Stellar
 
         public long SequenceNumber { get; private set; }
         public KeyPair SourceAccount { get; private set; }
-        public Generated.Memo Memo { get; private set; }
+        public Memo Memo { get; private set; }
 
         private IList<Generated.DecoratedSignature> mSignatures;
 
-        public Transaction(KeyPair sourceAccount, long sequenceNumber, Operation[] operations, Generated.Memo memo)
+        public Transaction(KeyPair sourceAccount, long sequenceNumber, Operation[] operations, Memo memo)
         {
             SourceAccount = CheckNotNull(sourceAccount, "sourceAccount cannot be null");
             SequenceNumber = CheckNotNull(sequenceNumber, "sequenceNumber cannot be null");
@@ -33,7 +33,7 @@ namespace Stellar
 
             mFee = operations.Length * BASE_FEE;
             mSignatures = new List<Generated.DecoratedSignature>();
-            Memo = memo != null ? memo : Stellar.Memo.None();
+            Memo = memo != null ? memo : Stellar.Memo.MemoNone();
         }
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace Stellar
 
             // Transaction XDR bytes
             var txWriter = new Generated.ByteWriter();
-            Generated.Transaction.Encode(txWriter, this.ToXdr());
+            Generated.Transaction.Encode(txWriter, this.ToXDR());
 
             writer.Write(txWriter.ToArray());
 
@@ -82,7 +82,7 @@ namespace Stellar
         /// Generates Transaction XDR object.
         /// </summary>
         /// <returns></returns>
-        public Generated.Transaction ToXdr()
+        public Generated.Transaction ToXDR()
         {
             // fee
             Generated.Uint32 fee = new Generated.Uint32((uint)mFee);
@@ -93,7 +93,7 @@ namespace Stellar
             // sourceAccount
             Generated.AccountID sourceAccount = new Generated.AccountID(SourceAccount.AccountId.InnerValue);
             // operations
-            Generated.Operation[] operations = mOperations.Select(tx => tx.ToXdr()).ToArray();
+            Generated.Operation[] operations = mOperations.Select(tx => tx.ToXDR()).ToArray();
             // ext
             Generated.Transaction.TransactionExt ext = new Generated.Transaction.TransactionExt()
             {
@@ -106,7 +106,7 @@ namespace Stellar
                 SeqNum = sequenceNumber,
                 SourceAccount = sourceAccount,
                 Operations = operations,
-                Memo = Memo,
+                Memo = Memo.ToXDR(),
                 Ext = ext,
                 //TimeBounds = null,
             };
@@ -118,7 +118,7 @@ namespace Stellar
         /// Generates TransactionEnvelope XDR object. Transaction need to have at least one signature.
         /// </summary>
         /// <returns></returns>
-        public Generated.TransactionEnvelope ToEnvelopeXdr()
+        public Generated.TransactionEnvelope ToEnvelopeXDR()
         {
             if (mSignatures.Count() == 0)
             {
@@ -127,7 +127,7 @@ namespace Stellar
 
             Generated.TransactionEnvelope xdr = new Generated.TransactionEnvelope()
             {
-                Tx = ToXdr(),
+                Tx = ToXDR(),
                 Signatures = mSignatures.ToArray()
             };
 
@@ -140,7 +140,7 @@ namespace Stellar
         /// <returns></returns>
         public string ToEnvelopeXdrBase64()
         {
-            var envelope = ToEnvelopeXdr();
+            var envelope = ToEnvelopeXDR();
             var writer = new Generated.ByteWriter();
             Generated.TransactionEnvelope.Encode(writer, envelope);
             return Convert.ToBase64String(writer.ToArray());
@@ -149,7 +149,7 @@ namespace Stellar
         public class Builder
         {
             public ITransactionBuilderAccount SourceAccount { get; private set; }
-            public Generated.Memo Memo { get; private set; }
+            public Memo Memo { get; private set; }
             public IList<Operation> Operations { get; private set; }
 
             /// <summary>
@@ -173,14 +173,14 @@ namespace Stellar
                 return this;
             }
 
-            public Builder AddMemo(Generated.Memo memo)
+            public Builder AddMemo(Memo memo)
             {
-                if (this.Memo != null)
+                if (Memo != null)
                 {
                     throw new Exception("Memo has already been added.");
                 }
 
-                this.Memo = CheckNotNull(memo, "memo cannot be null.");
+                Memo = CheckNotNull(memo, "memo cannot be null.");
                 return this;
             }
 

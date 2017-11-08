@@ -10,7 +10,7 @@
 //  ===========================================================================
 public class SignatureHint {
   public byte[] InnerValue { get; set; } = default(byte[]);
-        
+            
   public SignatureHint() { }
   public SignatureHint(byte[] SignatureHint)
   {

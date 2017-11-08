@@ -10,7 +10,7 @@
 //  ===========================================================================
 public class Uint32 {
   public uint InnerValue { get; set; } = default(uint);
-        
+            
   public Uint32() { }
   public Uint32(uint Uint32)
   {

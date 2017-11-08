@@ -45,7 +45,7 @@ namespace csharp_stellar_base.Tests
         {
             Stellar.Network.CurrentNetwork = "";
 
-            var native = Asset.Native();
+            var native = new Asset().ToXDR();
 
             string sample64 = "AAAAAA==";
             byte[] sample = Convert.FromBase64String(sample64);

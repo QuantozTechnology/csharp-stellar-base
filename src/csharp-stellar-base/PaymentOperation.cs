@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Stellar.Generated;
 using static Stellar.Preconditions;
 
 namespace Stellar
@@ -11,29 +10,38 @@ namespace Stellar
     public class PaymentOperation : Operation
     {
         public KeyPair Destination { get; private set; }
-        public Generated.Asset Asset { get; private set; }
+        public Asset Asset { get; private set; }
         public long Amount { get; private set; }
 
-        private PaymentOperation(KeyPair destination, Generated.Asset asset, long amount)
+        private PaymentOperation(KeyPair destination, Asset asset, long amount)
         {
-            this.Destination = CheckNotNull(destination, "destination cannot be null.");
-            this.Asset = CheckNotNull(asset, "asset cannot be null.");
-            this.Amount = amount;
+            Destination = CheckNotNull(destination, "destination cannot be null.");
+            Asset = CheckNotNull(asset, "asset cannot be null.");
+            if(amount < 0)
+            {
+                throw new ArgumentException("amount must be non-negative.");
+            }
+            Amount = amount;
+        }
+
+        public static new PaymentOperation FromXDR(Generated.Operation xdr)
+        {
+            return (PaymentOperation)Operation.FromXDR(xdr);
         }
 
         public override Generated.Operation.OperationBody ToOperationBody()
         {
-            var op = new PaymentOp
+            var op = new Generated.PaymentOp
             {
-                Destination = this.Destination.AccountId,
+                Destination = Destination.AccountId,
                 Amount = new Generated.Int64(Amount),
-                Asset = this.Asset
+                Asset = Asset.ToXDR()
             };
 
             var body = new Generated.Operation.OperationBody
             {
                 PaymentOp = op,
-                Discriminant = OperationType.Create(OperationType.OperationTypeEnum.PAYMENT)
+                Discriminant = Generated.OperationType.Create(Generated.OperationType.OperationTypeEnum.PAYMENT)
             };
 
             return body;
@@ -43,26 +51,30 @@ namespace Stellar
         {
             public KeyPair Destination { get; private set; }
             public KeyPair SourceAccount { get; private set; }
-            public Generated.Asset Asset { get; private set; }
+            public Asset Asset { get; private set; }
             public long Amount { get; private set; }
 
-            public Builder(PaymentOp op)
+            public Builder(Generated.PaymentOp op)
             {
-                this.Destination = KeyPair.FromXdrPublicKey(op.Destination.InnerValue);
-                this.Asset = op.Asset;
-                this.Amount = op.Amount.InnerValue;
+                Destination = KeyPair.FromXdrPublicKey(op.Destination.InnerValue);
+                Asset = Asset.FromXDR(op.Asset);
+                Amount = op.Amount.InnerValue;
             }
 
-            public Builder(KeyPair destination, Generated.Asset asset, long amount)
+            public Builder(KeyPair destination, Asset asset, long amount)
             {
-                this.Destination = CheckNotNull(destination, "destination cannot be null.");
-                this.Asset = CheckNotNull(asset, "asset cannot be null.");
-                this.Amount = amount;
+                Destination = CheckNotNull(destination, "destination cannot be null.");
+                Asset = CheckNotNull(asset, "asset cannot be null.");
+                if (amount < 0)
+                {
+                    throw new ArgumentException("amount must be non-negative.");
+                }
+                Amount = amount;
             }
 
-            public Builder SetSourceAccount(KeyPair account)
+            public Builder SetSourceAccount(KeyPair sourceAccount)
             {
-                SourceAccount = account;
+                SourceAccount = CheckNotNull(sourceAccount, "sourceAccount cannot be null.");
                 return this;
             }
 

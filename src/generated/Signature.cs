@@ -10,7 +10,7 @@
 //  ===========================================================================
 public class Signature {
   public byte[] InnerValue { get; set; } = default(byte[]);
-        
+            
   public Signature() { }
   public Signature(byte[] Signature)
   {

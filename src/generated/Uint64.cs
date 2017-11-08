@@ -10,7 +10,7 @@
 //  ===========================================================================
 public class Uint64 {
   public ulong InnerValue { get; set; } = default(ulong);
-        
+            
   public Uint64() { }
   public Uint64(ulong Uint64)
   {

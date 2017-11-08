@@ -10,7 +10,7 @@
 //  ===========================================================================
 public class NodeID {
   public PublicKey InnerValue { get; set; } = default(PublicKey);
-        
+            
   public NodeID() { }
   public NodeID(PublicKey NodeID)
   {

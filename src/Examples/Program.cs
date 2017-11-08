@@ -1,6 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Stellar;
-using Stellar.Generated;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -114,7 +113,7 @@ namespace Examples
             Account source = new Account(from, GetSequence(from.Address));
 
             // load asset
-            Stellar.Generated.Asset asset = Stellar.Asset.Native();
+            Asset asset = new Asset();
 
             var operation =
                 new PaymentOperation.Builder(to, asset, amount)
@@ -135,19 +134,6 @@ namespace Examples
             var response = PostResult(tx);
 
             Console.WriteLine(response.ReasonPhrase);
-        }
-
-        private static Stellar.Generated.Asset GetAsset(KeyPair master, string assetCode)
-        {
-            return new Stellar.Generated.Asset
-            {
-                Discriminant = AssetType.Create(AssetType.AssetTypeEnum.ASSET_TYPE_CREDIT_ALPHANUM4),
-                AlphaNum4 = new Stellar.Generated.Asset.AssetAlphaNum4
-                {
-                    AssetCode = ASCIIEncoding.ASCII.GetBytes(assetCode),
-                    Issuer = master.AccountId
-                }
-            };
         }
     }
 }

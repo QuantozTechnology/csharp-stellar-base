@@ -10,7 +10,7 @@
 //  ===========================================================================
 public class AccountID {
   public PublicKey InnerValue { get; set; } = default(PublicKey);
-        
+            
   public AccountID() { }
   public AccountID(PublicKey AccountID)
   {

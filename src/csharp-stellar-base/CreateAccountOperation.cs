@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Stellar.Generated;
 using static Stellar.Preconditions;
 
 namespace Stellar
@@ -15,22 +14,31 @@ namespace Stellar
 
         private CreateAccountOperation(KeyPair destination, long startingBalance)
         {
-            this.Destination = CheckNotNull(destination, "destination cannot be null.");
-            this.StartingBalance = startingBalance;
+            Destination = CheckNotNull(destination, "destination cannot be null.");
+            if(startingBalance < 0)
+            {
+                throw new ArgumentException("startingBalance must be non-negative.");
+            }
+            StartingBalance = startingBalance;
+        }
+
+        public static new CreateAccountOperation FromXDR(Generated.Operation xdr)
+        {
+            return (CreateAccountOperation)Operation.FromXDR(xdr);
         }
 
         public override Generated.Operation.OperationBody ToOperationBody()
         {
-            var op = new CreateAccountOp
+            var op = new Generated.CreateAccountOp
             {
-                Destination = this.Destination.AccountId,
+                Destination = Destination.AccountId,
                 StartingBalance = new Generated.Int64(StartingBalance)
             };
 
             var body = new Generated.Operation.OperationBody
             {
                 CreateAccountOp = op,
-                Discriminant = OperationType.Create(OperationType.OperationTypeEnum.CREATE_ACCOUNT)
+                Discriminant = Generated.OperationType.Create(Generated.OperationType.OperationTypeEnum.CREATE_ACCOUNT)
             };
 
             return body;
@@ -42,21 +50,25 @@ namespace Stellar
             public KeyPair Destination { get; private set; }
             public long StartingBalance { get; private set; }
 
-            public Builder(CreateAccountOp op)
+            public Builder(Generated.CreateAccountOp op)
             {
-                this.Destination = KeyPair.FromXdrPublicKey(op.Destination.InnerValue);
-                this.StartingBalance = op.StartingBalance.InnerValue;
+                Destination = KeyPair.FromXdrPublicKey(op.Destination.InnerValue);
+                StartingBalance = op.StartingBalance.InnerValue;
             }
 
             public Builder(KeyPair destination, long startingBalance)
             {
-                this.Destination = CheckNotNull(destination, "destination cannot be null.");
-                this.StartingBalance = startingBalance;
+                Destination = CheckNotNull(destination, "destination cannot be null.");
+                if (startingBalance < 0)
+                {
+                    throw new ArgumentException("startingBalance must be non-negative.");
+                }
+                StartingBalance = startingBalance;
             }
 
-            public Builder SetSourceAccount(KeyPair account)
+            public Builder SetSourceAccount(KeyPair sourceAccount)
             {
-                SourceAccount = account;
+                SourceAccount = CheckNotNull(sourceAccount, "sourceAccount cannot be null.");
                 return this;
             }
 

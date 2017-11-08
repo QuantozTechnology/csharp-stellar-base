@@ -10,7 +10,7 @@
 //  ===========================================================================
 public class Int32 {
   public int InnerValue { get; set; } = default(int);
-        
+            
   public Int32() { }
   public Int32(int Int32)
   {

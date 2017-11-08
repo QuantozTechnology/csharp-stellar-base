@@ -3,39 +3,38 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Stellar.Generated;
 using static Stellar.Preconditions;
 
 namespace Stellar
 {
     public class ChangeTrustOperation : Operation
     {
-        public Generated.Asset Asset { get; private set; }
+        public Asset Asset { get; private set; }
         public long Limit { get; private set; }
 
-        private ChangeTrustOperation(Generated.Asset asset, long limit)
+        private ChangeTrustOperation(Asset asset, long limit)
         {
             Asset = CheckNotNull(asset, "asset cannot be null.");
             Limit = CheckNotNull(limit, "limit cannot be null.");
         }
 
-        public static new ChangeTrustOperation FromXdr(Generated.Operation xdr)
+        public static new ChangeTrustOperation FromXDR(Generated.Operation xdr)
         {
-            return (ChangeTrustOperation)Operation.FromXdr(xdr);
+            return (ChangeTrustOperation)Operation.FromXDR(xdr);
         }
 
         public override Generated.Operation.OperationBody ToOperationBody()
         {
-            var op = new ChangeTrustOp
+            var op = new Generated.ChangeTrustOp
             {
-                Line = Asset,
+                Line = Asset.ToXDR(),
                 Limit = new Generated.Int64(Limit)
             };
 
             var body = new Generated.Operation.OperationBody
             {
                 ChangeTrustOp = op,
-                Discriminant = OperationType.Create(OperationType.OperationTypeEnum.CHANGE_TRUST)
+                Discriminant = Generated.OperationType.Create(Generated.OperationType.OperationTypeEnum.CHANGE_TRUST)
             };
 
             return body;
@@ -44,18 +43,22 @@ namespace Stellar
         public class Builder
         {
             public KeyPair SourceAccount { get; private set; }
-            public Generated.Asset Asset { get; private set; }
+            public Asset Asset { get; private set; }
             public long Limit { get; private set; }
 
-            public Builder(ChangeTrustOp op)
+            public Builder(Generated.ChangeTrustOp op)
             {
-                Asset = op.Line;
+                Asset = Stellar.Asset.FromXDR(op.Line);
                 Limit = op.Limit.InnerValue;
             }
 
-            public Builder(Generated.Asset asset, long limit)
+            public Builder(Asset asset, long limit)
             {
                 Asset = CheckNotNull(asset, "asset cannot be null.");
+                if(limit < 0)
+                {
+                    throw new ArgumentException("limit must be non-negative.");
+                }
                 Limit = CheckNotNull(limit, "limit cannot be null.");
             }
 

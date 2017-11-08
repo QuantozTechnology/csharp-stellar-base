@@ -43,7 +43,7 @@ namespace csharp_stellar_base.Tests
         public void SignatureBaseTest()
         {
             var transaction = SampleTransaction("GDICFS3KJ3ZTW4COVPUX7OCOAZKLLNFAM5FIYSN5FKKM7M7QNXLBPCCH");
-            var txXdr = transaction.ToXdr();
+            var txXdr = transaction.ToXDR();
 
             var writer = new Stellar.Generated.ByteWriter();
             Stellar.Generated.Transaction.Encode(writer, txXdr);

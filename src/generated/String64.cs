@@ -10,7 +10,7 @@
 //  ===========================================================================
 public class String64 {
   public string InnerValue { get; set; } = default(string);
-        
+            
   public String64() { }
   public String64(string String64)
   {

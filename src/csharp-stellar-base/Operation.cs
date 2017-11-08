@@ -19,7 +19,7 @@ namespace Stellar
         /// Generates Operation XDR object.
         /// </summary>
         /// <returns></returns>
-        public Generated.Operation ToXdr()
+        public Generated.Operation ToXDR()
         {
             var xdr = new Generated.Operation();
             if (SourceAccount != null)
@@ -37,20 +37,20 @@ namespace Stellar
         /// <returns></returns>
         public string ToXdrBase64()
         {
-            var operation = ToXdr();
+            var operation = ToXDR();
             var writer = new Generated.ByteWriter();
             Generated.Operation.Encode(writer, operation);
             return Convert.ToBase64String(writer.ToArray());
         }
 
-        public static Operation FromXdr(Generated.Operation xdr)
+        public static Operation FromXDR(Generated.Operation xdr)
         {
             var body = xdr.Body;
             Operation operation = null;
             switch (body.Discriminant.InnerValue)
             {
                 case Generated.OperationType.OperationTypeEnum.CREATE_ACCOUNT:
-                    //operation = new CreateAccountOperation.Builder(body.CreateAccountOp).Build();
+                    operation = new CreateAccountOperation.Builder(body.CreateAccountOp).Build();
                     break;
                 case Generated.OperationType.OperationTypeEnum.PAYMENT:
                     operation = new PaymentOperation.Builder(body.PaymentOp).Build();

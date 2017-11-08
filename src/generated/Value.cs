@@ -10,7 +10,7 @@
 //  ===========================================================================
 public class Value {
   public byte[] InnerValue { get; set; } = default(byte[]);
-        
+            
   public Value() { }
   public Value(byte[] Value)
   {

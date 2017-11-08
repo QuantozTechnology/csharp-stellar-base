@@ -10,7 +10,7 @@
 //  ===========================================================================
 public class Int64 {
   public long InnerValue { get; set; } = default(long);
-        
+            
   public Int64() { }
   public Int64(long Int64)
   {

@@ -10,7 +10,7 @@
 //  ===========================================================================
 public class SequenceNumber {
   public Uint64 InnerValue { get; set; } = default(Uint64);
-        
+            
   public SequenceNumber() { }
   public SequenceNumber(Uint64 SequenceNumber)
   {

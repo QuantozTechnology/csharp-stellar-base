@@ -10,7 +10,7 @@
 //  ===========================================================================
 public class Thresholds {
   public byte[] InnerValue { get; set; } = default(byte[]);
-        
+            
   public Thresholds() { }
   public Thresholds(byte[] Thresholds)
   {

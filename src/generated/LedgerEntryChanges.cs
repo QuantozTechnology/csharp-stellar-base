@@ -10,7 +10,7 @@
 //  ===========================================================================
 public class LedgerEntryChanges {
   public LedgerEntryChange[] InnerValue { get; set; } = default(LedgerEntryChange[]);
-        
+            
   public LedgerEntryChanges() { }
   public LedgerEntryChanges(LedgerEntryChange[] LedgerEntryChanges)
   {

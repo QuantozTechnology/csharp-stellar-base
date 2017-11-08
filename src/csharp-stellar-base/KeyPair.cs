@@ -1,6 +1,5 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
-using Stellar.Generated;
 using System.Linq;
 using System;
 
@@ -11,17 +10,17 @@ namespace Stellar
         public byte[] PrivateKey { get; private set; }
         public byte[] PublicKey { get; private set; }
         public byte[] SeedBytes { get; private set; }
-
-        public AccountID AccountId
+        
+        public Generated.AccountID AccountId
         {
             get
             {
-                return new AccountID
+                return new Generated.AccountID
                 {
                     InnerValue = new Generated.PublicKey
                     {
-                        Discriminant = PublicKeyType.Create(PublicKeyType.PublicKeyTypeEnum.PUBLIC_KEY_TYPE_ED25519),
-                        Ed25519 = new Uint256(PublicKey)
+                        Discriminant = Generated.PublicKeyType.Create(Generated.PublicKeyType.PublicKeyTypeEnum.PUBLIC_KEY_TYPE_ED25519),
+                        Ed25519 = new Generated.Uint256(PublicKey)
                     }
                 };
             }
@@ -47,8 +46,8 @@ namespace Stellar
         {
             get
             {
-                var stream = new ByteWriter();
-                AccountID.Encode(stream, AccountId);
+                var stream = new Generated.ByteWriter();
+                Generated.AccountID.Encode(stream, AccountId);
                 var bytes = stream.ToArray();
                 var length = bytes.Length;
                 return bytes.Skip(length - 4).Take(4).ToArray();
@@ -122,13 +121,13 @@ namespace Stellar
             return Chaos.NaCl.Ed25519.Sign(bytes, PrivateKey);
         }
 
-        public DecoratedSignature SignDecorated(byte[] message)
+        public Generated.DecoratedSignature SignDecorated(byte[] message)
         {
             var rawSig = Sign(message);
-            return new DecoratedSignature
+            return new Generated.DecoratedSignature
             {
-                Hint = new SignatureHint(SignatureHint),
-                Signature = new Signature(rawSig)
+                Hint = new Generated.SignatureHint(SignatureHint),
+                Signature = new Generated.Signature(rawSig)
             };
         }
 
@@ -144,7 +143,7 @@ namespace Stellar
             }
         }
 
-        public static KeyPair FromXdrPublicKey(PublicKey key)
+        public static KeyPair FromXdrPublicKey(Generated.PublicKey key)
         {
             return FromPublicKey(key.Ed25519.InnerValue);
         }

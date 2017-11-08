@@ -10,7 +10,7 @@
 //  ===========================================================================
 public class String32 {
   public string InnerValue { get; set; } = default(string);
-        
+            
   public String32() { }
   public String32(string String32)
   {

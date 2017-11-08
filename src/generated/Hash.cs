@@ -10,7 +10,7 @@
 //  ===========================================================================
 public class Hash {
   public byte[] InnerValue { get; set; } = default(byte[]);
-        
+            
   public Hash() { }
   public Hash(byte[] Hash)
   {

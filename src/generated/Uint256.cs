@@ -10,7 +10,7 @@
 //  ===========================================================================
 public class Uint256 {
   public byte[] InnerValue { get; set; } = default(byte[]);
-        
+            
   public Uint256() { }
   public Uint256(byte[] Uint256)
   {
