@@ -1,4 +1,4 @@
-﻿using Stellar.Generated;
+﻿using Stellar;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,47 +9,35 @@ namespace Stellar
 {
     public enum VersionByte
     {
-        AccountId = 0x30,
-        Seed = 0x90
+        ed25519Publickey = 0x30,
+        ed25519SecretSeed = 0x90
     }
 
     public class StrKey
     {
-        public static string EncodeStellarAccountId(byte[] data)
+        public static string EncodeEd25519PublicKey(byte[] data)
         {
-            return EncodeCheck(VersionByte.AccountId, data);
+            return EncodeCheck(VersionByte.ed25519Publickey, data);
         }
 
-        [Obsolete("Use AccountId instead.")]
-        public static string EncodeStellarAddress(byte[] data)
+        public static byte[] DecodeEd25519PublicKey(string data)
         {
-            return EncodeStellarAccountId(data);
+            return DecodeCheck(VersionByte.ed25519Publickey, data);
         }
 
-        public static string EncodeStellarSecretSeed(byte[] data)
+        public static string EncodeEd25519SecretSeed(byte[] data)
         {
-            return EncodeCheck(VersionByte.Seed, data);
+            return EncodeCheck(VersionByte.ed25519SecretSeed, data);
         }
 
-        public static byte[] DecodeStellarAccountId(string data)
+        public static byte[] DecodeEd25519SecretSeed(string data)
         {
-            return DecodeCheck(VersionByte.AccountId, data);
-        }
-
-        [Obsolete("Use AccountId instead.")]
-        public static byte[] DecodeStellarAddress(string data)
-        {
-            return DecodeStellarAccountId(data);
-        }
-
-        public static byte[] DecodeStellarSecretSeed(string data)
-        {
-            return DecodeCheck(VersionByte.Seed, data);
+            return DecodeCheck(VersionByte.ed25519SecretSeed, data);
         }
 
         public static string EncodeCheck(VersionByte versionByte, byte[] data)
         {
-            var writer = new ByteWriter();
+            var writer = new Generated.ByteWriter();
             writer.Write((byte)versionByte);
             writer.Write(data);
             byte[] checksum = StrKey.CalculateChecksum(writer.ToArray());
