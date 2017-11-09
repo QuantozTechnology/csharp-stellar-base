@@ -1,11 +1,11 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 
 namespace csharp_stellar_base.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class NetworkTests
     {
-        [TestMethod]
+        [Test]
         public void NetworkId()
         {
             Stellar.Network.CurrentNetwork = "ProjectQ";

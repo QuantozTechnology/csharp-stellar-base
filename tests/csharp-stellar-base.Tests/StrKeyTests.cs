@@ -1,13 +1,13 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 using Stellar;
 using System;
 
 namespace csharp_stellar_base.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class StrKeyTests
     {
-        [TestMethod]
+        [Test]
         public void TestDecodeEncode()
         {
             String seed = "SDJHRQF4GCMIIKAAAQ6IHY42X73FQFLHUULAPSKKD4DFDM7UXWWCRHBE";
@@ -16,20 +16,18 @@ namespace csharp_stellar_base.Tests
             Assert.AreEqual(seed, encoded);
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(FormatException))]
+        [Test]
         public void TestDecodeInvalidVersionByte()
         {
             String accountId = "GCZHXL5HXQX5ABDM26LHYRCQZ5OJFHLOPLZX47WEBP3V2PF5AVFK2A5D";
-            StrKey.DecodeCheck(VersionByte.Seed, accountId);
+            var ex = Assert.Throws<FormatException>(() => StrKey.DecodeCheck(VersionByte.Seed, accountId));
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(FormatException))]
+        [Test]
         public void TestDecodeInvalidSeed()
         {
             String seed = "SAA6NXOBOXP3RXGAXBW6PGFI5BPK4ODVAWITS4VDOMN5C2M4B66ZML";
-            StrKey.DecodeCheck(VersionByte.Seed, seed);
+            var ex = Assert.Throws<FormatException>(() => StrKey.DecodeCheck(VersionByte.Seed, seed));
         }
     }
 }

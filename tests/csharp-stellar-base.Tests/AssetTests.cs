@@ -1,6 +1,6 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 using Stellar;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace csharp_stellar_base.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class AssetTests
     {
-        [TestMethod]
+        [Test]
         public void TestNativeAsset()
         {
             Asset asset = new Asset();
@@ -27,7 +27,7 @@ namespace csharp_stellar_base.Tests
             Assert.AreEqual(Asset.AssetTypeEnum.ASSET_TYPE_NATIVE, resAsset.Type);
         }
 
-        [TestMethod]
+        [Test]
         public void TestAlphaNum4Asset()
         {
             var keyPair = KeyPair.Master();
@@ -52,7 +52,7 @@ namespace csharp_stellar_base.Tests
             Assert.AreEqual(Asset.AssetTypeEnum.ASSET_TYPE_CREDIT_ALPHANUM4, resAsset.Type);
         }
 
-        [TestMethod]
+        [Test]
         public void TestAlphaNum12Asset()
         {
             var keyPair = KeyPair.Master();
@@ -77,32 +77,32 @@ namespace csharp_stellar_base.Tests
             Assert.AreEqual(Asset.AssetTypeEnum.ASSET_TYPE_CREDIT_ALPHANUM12, resAsset.Type);
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(NullReferenceException), "code cannot be null.")]
+        [Test]
         public void TestAlphaNumAssetNullCode()
         {
-            Asset asset = new Asset(null, KeyPair.Master());
+            var ex = Assert.Throws<NullReferenceException>(() => new Asset(null, KeyPair.Master()));
+            Assert.AreEqual(ex.Message, "code cannot be null.");
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentException), "Invalid code, should have positive length, no larger than 12.")]
+        [Test]
         public void TestAlphaNumAssetShortCode()
         {
-            Asset asset = new Asset("", KeyPair.Master());
+            var ex = Assert.Throws<ArgumentException>(() => new Asset("", KeyPair.Master()));
+            Assert.AreEqual(ex.Message, "Invalid code, should have positive length, no larger than 12.");
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentException), "Invalid code, should have positive length, no larger than 12.")]
+        [Test]
         public void TestAlphaNumAssetLongCode()
         {
-            Asset asset = new Asset("ThisIsTooLongACode", KeyPair.Master());
+            var ex = Assert.Throws<ArgumentException>(() => new Asset("ThisIsTooLongACode", KeyPair.Master()));
+            Assert.AreEqual(ex.Message, "Invalid code, should have positive length, no larger than 12.");
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(NullReferenceException), "issuer cannot be null.")]
+        [Test]
         public void TestAlphaNumAssetNullIssuer()
         {
-            Asset asset = new Asset("Test", null);
+            var ex = Assert.Throws<NullReferenceException>(() => new Asset("Test", null));
+            Assert.AreEqual(ex.Message, "issuer cannot be null.");
         }
     }
 }

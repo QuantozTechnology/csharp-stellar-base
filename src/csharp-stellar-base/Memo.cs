@@ -45,7 +45,7 @@ namespace Stellar
                 case MemoTypeEnum.MEMO_HASH:
                     if(textorhash.Length != 32)
                     {
-                        throw new ArgumentException("Invalid hash");
+                        throw new ArgumentException("Invalid hash.");
                     }
                     Hash = textorhash;
                     Type = type;
@@ -53,7 +53,7 @@ namespace Stellar
                 case MemoTypeEnum.MEMO_RETURN:
                     if(textorhash.Length != 32)
                     {
-                        throw new ArgumentException("Invalid rethash");
+                        throw new ArgumentException("Invalid retHash.");
                     }
                     RetHash = textorhash;
                     Type = type;
@@ -88,9 +88,9 @@ namespace Stellar
             return new Memo(MemoTypeEnum.MEMO_HASH, hash);
         }
 
-        public static Memo MemoReturnHash(string rethash)
+        public static Memo MemoReturnHash(string retHash)
         {
-            return new Memo(MemoTypeEnum.MEMO_RETURN, rethash);
+            return new Memo(MemoTypeEnum.MEMO_RETURN, retHash);
         }
 
         public Generated.Memo ToXDR()

@@ -1,14 +1,14 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 using Stellar;
 using System;
 using System.Text;
 
 namespace csharp_stellar_base.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class OperationTests
     {
-        [TestMethod]
+        [Test]
         public void ChangeTrustOperation()
         {
             // GC5SIC4E3V56VOHJ3OZAX5SJDTWY52JYI2AFK6PUGSXFVRJQYQXXZBZF
@@ -39,22 +39,21 @@ namespace csharp_stellar_base.Tests
             Assert.AreEqual(limit, parsedOperation.Limit);
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(NullReferenceException), "asset cannot be null.")]
+        [Test]
         public void ChangeTrustOperationNullAsset()
         {
             // GC5SIC4E3V56VOHJ3OZAX5SJDTWY52JYI2AFK6PUGSXFVRJQYQXXZBZF
             KeyPair source = KeyPair.FromSeed("SC4CGETADVYTCR5HEAVZRB3DZQY5Y4J7RFNJTRA6ESMHIPEZUSTE2QDK");
 
             long limit = 100;
-
-            ChangeTrustOperation operation = new ChangeTrustOperation.Builder(null, limit)
+            
+            var ex = Assert.Throws<NullReferenceException>(() => new ChangeTrustOperation.Builder(null, limit)
                 .SetSourceAccount(source)
-                .Build();
+                .Build());
+            Assert.AreEqual(ex.Message, "asset cannot be null.");
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentException), "limit must be non-negative.")]
+        [Test]
         public void ChangeTrustOperationNegativeLimit()
         {
             // GC5SIC4E3V56VOHJ3OZAX5SJDTWY52JYI2AFK6PUGSXFVRJQYQXXZBZF
@@ -62,13 +61,13 @@ namespace csharp_stellar_base.Tests
             var assetCode = "EUR";
             var asset = new Asset(assetCode, source);
 
-            ChangeTrustOperation operation = new ChangeTrustOperation.Builder(asset, -1)
+            var ex = Assert.Throws<ArgumentException>(() => new ChangeTrustOperation.Builder(asset, -1)
                 .SetSourceAccount(source)
-                .Build();
+                .Build());
+            Assert.AreEqual(ex.Message, "limit must be non-negative.");
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(NullReferenceException), "sourceAccount cannot be null.")]
+        [Test]
         public void ChangeTrustOperationNullSource()
         {
             // GC5SIC4E3V56VOHJ3OZAX5SJDTWY52JYI2AFK6PUGSXFVRJQYQXXZBZF
@@ -78,12 +77,13 @@ namespace csharp_stellar_base.Tests
 
             long limit = 100;
 
-            ChangeTrustOperation operation = new ChangeTrustOperation.Builder(asset, limit)
+            var ex = Assert.Throws<NullReferenceException>(() => new ChangeTrustOperation.Builder(asset, limit)
                 .SetSourceAccount(null)
-                .Build();
+                .Build());
+            Assert.AreEqual(ex.Message, "sourceAccount cannot be null.");
         }
 
-        [TestMethod]
+        [Test]
         public void CreateAccountOperation()
         {
             // GC5SIC4E3V56VOHJ3OZAX5SJDTWY52JYI2AFK6PUGSXFVRJQYQXXZBZF
@@ -110,47 +110,47 @@ namespace csharp_stellar_base.Tests
             Assert.AreEqual(1000, parsedOperation.StartingBalance);
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(NullReferenceException), "destination cannot be null.")]
+        [Test]
         public void CreateAccountOperationNullDestination()
         {
             // GC5SIC4E3V56VOHJ3OZAX5SJDTWY52JYI2AFK6PUGSXFVRJQYQXXZBZF
             KeyPair source = KeyPair.FromSeed("SC4CGETADVYTCR5HEAVZRB3DZQY5Y4J7RFNJTRA6ESMHIPEZUSTE2QDK");
             var balance = 1000;
-
-            CreateAccountOperation operation = new CreateAccountOperation.Builder(null, balance)
+            
+            var ex = Assert.Throws<NullReferenceException>(() => new CreateAccountOperation.Builder(null, balance)
                 .SetSourceAccount(source)
-                .Build();
+                .Build());
+            Assert.AreEqual(ex.Message, "destination cannot be null.");
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentException), "startingBalance must be non-negative.")]
+        [Test]
         public void CreateAccountOperationNegativeStartingBalance()
         {
             // GC5SIC4E3V56VOHJ3OZAX5SJDTWY52JYI2AFK6PUGSXFVRJQYQXXZBZF
             KeyPair source = KeyPair.FromSeed("SC4CGETADVYTCR5HEAVZRB3DZQY5Y4J7RFNJTRA6ESMHIPEZUSTE2QDK");
             // GDW6AUTBXTOC7FIKUO5BOO3OGLK4SF7ZPOBLMQHMZDI45J2Z6VXRB5NR
             KeyPair destination = KeyPair.FromSeed("SDHZGHURAYXKU2KMVHPOXI6JG2Q4BSQUQCEOY72O3QQTCLR2T455PMII");
-
-            CreateAccountOperation operation = new CreateAccountOperation.Builder(destination, -1)
+            
+            var ex = Assert.Throws<ArgumentException>(() => new CreateAccountOperation.Builder(destination, -1)
                 .SetSourceAccount(source)
-                .Build();
+                .Build());
+            Assert.AreEqual(ex.Message, "startingBalance must be non-negative.");
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(NullReferenceException), "sourceAccount cannot be null.")]
+        [Test]
         public void CreateAccountOperationNullSource()
         {
             // GDW6AUTBXTOC7FIKUO5BOO3OGLK4SF7ZPOBLMQHMZDI45J2Z6VXRB5NR
             KeyPair destination = KeyPair.FromSeed("SDHZGHURAYXKU2KMVHPOXI6JG2Q4BSQUQCEOY72O3QQTCLR2T455PMII");
             var balance = 1000;
 
-            CreateAccountOperation operation = new CreateAccountOperation.Builder(destination, balance)
+            var ex = Assert.Throws<NullReferenceException>(() => new CreateAccountOperation.Builder(destination, balance)
                 .SetSourceAccount(null)
-                .Build();
+                .Build());
+            Assert.AreEqual(ex.Message, "sourceAccount cannot be null.");
         }
 
-        [TestMethod]
+        [Test]
         public void PaymentOperation()
         {
             // GC5SIC4E3V56VOHJ3OZAX5SJDTWY52JYI2AFK6PUGSXFVRJQYQXXZBZF
@@ -182,8 +182,7 @@ namespace csharp_stellar_base.Tests
             Assert.AreEqual(amount, parsedOperation.Amount);
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(NullReferenceException), "destination cannot be null.")]
+        [Test]
         public void PaymentOperationNullDestination()
         {
             // GC5SIC4E3V56VOHJ3OZAX5SJDTWY52JYI2AFK6PUGSXFVRJQYQXXZBZF
@@ -191,14 +190,14 @@ namespace csharp_stellar_base.Tests
 
             Asset asset = new Stellar.Asset();
             long amount = 1000;
-
-            PaymentOperation operation = new PaymentOperation.Builder(null, asset, amount)
+            
+            var ex = Assert.Throws<NullReferenceException>(() => new PaymentOperation.Builder(null, asset, amount)
                 .SetSourceAccount(source)
-                .Build();
+                .Build());
+            Assert.AreEqual(ex.Message, "destination cannot be null.");
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(NullReferenceException), "asset cannot be null.")]
+        [Test]
         public void PaymentOperationNullAsset()
         {
             // GC5SIC4E3V56VOHJ3OZAX5SJDTWY52JYI2AFK6PUGSXFVRJQYQXXZBZF
@@ -208,13 +207,13 @@ namespace csharp_stellar_base.Tests
             
             long amount = 1000;
 
-            PaymentOperation operation = new PaymentOperation.Builder(destination, null, amount)
+            var ex = Assert.Throws<NullReferenceException>(() => new PaymentOperation.Builder(destination, null, amount)
                 .SetSourceAccount(source)
-                .Build();
+                .Build());
+            Assert.AreEqual(ex.Message, "asset cannot be null.");
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentException), "amount must be non-negative.")]
+        [Test]
         public void PaymentOperationNegativeAmount()
         {
             // GC5SIC4E3V56VOHJ3OZAX5SJDTWY52JYI2AFK6PUGSXFVRJQYQXXZBZF
@@ -224,13 +223,13 @@ namespace csharp_stellar_base.Tests
 
             Asset asset = new Stellar.Asset();
 
-            PaymentOperation operation = new PaymentOperation.Builder(destination, asset, -1)
+            var ex = Assert.Throws<ArgumentException>(() => new PaymentOperation.Builder(destination, asset, -1)
                 .SetSourceAccount(source)
-                .Build();
+                .Build());
+            Assert.AreEqual(ex.Message, "amount must be non-negative.");
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(NullReferenceException), "sourceAccount cannot be null.")]
+        [Test]
         public void PaymentOperationNullSource()
         {
             // GDW6AUTBXTOC7FIKUO5BOO3OGLK4SF7ZPOBLMQHMZDI45J2Z6VXRB5NR
@@ -238,10 +237,11 @@ namespace csharp_stellar_base.Tests
 
             Asset asset = new Stellar.Asset();
             long amount = 1000;
-
-            PaymentOperation operation = new PaymentOperation.Builder(destination, asset, amount)
+            
+            var ex = Assert.Throws<NullReferenceException>(() => new PaymentOperation.Builder(destination, asset, amount)
                 .SetSourceAccount(null)
-                .Build();
+                .Build());
+            Assert.AreEqual(ex.Message, "sourceAccount cannot be null.");
         }
     }
 }

@@ -1,6 +1,6 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 using Stellar;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace csharp_stellar_base.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class MemoTests
     {
-        [TestMethod]
+        [Test]
         public void TestMemoNone()
         {
             Memo memo = Memo.MemoNone();
@@ -27,7 +27,7 @@ namespace csharp_stellar_base.Tests
             Assert.AreEqual(Memo.MemoTypeEnum.MEMO_NONE, resMemo.Type);
         }
 
-        [TestMethod]
+        [Test]
         public void TestMemoText()
         {
             string text = "Test";
@@ -47,14 +47,14 @@ namespace csharp_stellar_base.Tests
             Assert.AreEqual(Memo.MemoTypeEnum.MEMO_TEXT, resMemo.Type);
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(NullReferenceException), "textorhash cannot be null.")]
+        [Test]
         public void TestMemoTextNull()
         {
-            Memo memo = Memo.MemoText(null);
+            var ex = Assert.Throws<NullReferenceException>(() => Memo.MemoText(null));
+            Assert.AreEqual(ex.Message, "textorhash cannot be null.");
         }
 
-        [TestMethod]
+        [Test]
         public void TestMemoId()
         {
             long id = 1234567890;
@@ -74,14 +74,14 @@ namespace csharp_stellar_base.Tests
             Assert.AreEqual(Memo.MemoTypeEnum.MEMO_ID, resMemo.Type);
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentException), "id must be non-negative.")]
+        [Test]
         public void TestMemoIdNegative()
         {
-            Memo memo = Memo.MemoId(-1);
+            var ex = Assert.Throws<ArgumentException>(() => Memo.MemoId(-1));
+            Assert.AreEqual(ex.Message, "id must be non-negative.");
         }
 
-        [TestMethod]
+        [Test]
         public void TestMemoHash()
         {
             string hash = "TestHashTestHashTestHashTestHash";
@@ -101,21 +101,21 @@ namespace csharp_stellar_base.Tests
             Assert.AreEqual(Memo.MemoTypeEnum.MEMO_HASH, resMemo.Type);
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(NullReferenceException), "textorhash cannot be null.")]
+        [Test]
         public void TestMemoHashNone()
         {
-            Memo memo = Memo.MemoHash(null);
+            var ex = Assert.Throws<NullReferenceException>(() => Memo.MemoHash(null));
+            Assert.AreEqual(ex.Message, "textorhash cannot be null.");
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentException), "Invalid hash")]
+        [Test]
         public void TestMemoHashWrong()
         {
-            Memo memo = Memo.MemoHash("Wrong");
+            var ex = Assert.Throws<ArgumentException>(() => Memo.MemoHash("Wrong"));
+            Assert.AreEqual(ex.Message, "Invalid hash.");
         }
 
-        [TestMethod]
+        [Test]
         public void TestMemoReturnHash()
         {
             string retHash = "TestHashTestHashTestHashTestHash";
@@ -135,18 +135,18 @@ namespace csharp_stellar_base.Tests
             Assert.AreEqual(Memo.MemoTypeEnum.MEMO_RETURN, resMemo.Type);
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(NullReferenceException), "textorhash cannot be null.")]
+        [Test]
         public void TestMemoReturnHashNone()
         {
-            Memo memo = Memo.MemoReturnHash(null);
+            var ex = Assert.Throws<NullReferenceException>(() => Memo.MemoReturnHash(null));
+            Assert.AreEqual(ex.Message, "textorhash cannot be null.");
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentException), "Invalid retHash")]
+        [Test]
         public void TestMemoReturnHashWrong()
         {
-            Memo memo = Memo.MemoReturnHash("Wrong");
+            var ex = Assert.Throws<ArgumentException>(() => Memo.MemoReturnHash("Wrong"));
+            Assert.AreEqual(ex.Message, "Invalid retHash.");
         }
     }
 }

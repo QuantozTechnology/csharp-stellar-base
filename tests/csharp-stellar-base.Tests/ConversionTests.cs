@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 using Stellar;
 using System;
 using System.Collections.Generic;
@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace csharp_stellar_base.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class ConversionTests
     {
-        [TestMethod]
+        [Test]
         public void AccountIdConversion()
         {
             Stellar.Network.CurrentNetwork = "ProjectQ";
@@ -40,7 +40,7 @@ namespace csharp_stellar_base.Tests
             Assert.AreEqual(sample64, master64);
         }
 
-        [TestMethod]
+        [Test]
         public void NativeAssetConversion()
         {
             Stellar.Network.CurrentNetwork = "";
@@ -64,7 +64,7 @@ namespace csharp_stellar_base.Tests
             Assert.AreEqual(sample64, native64);
         }
 
-        [TestMethod]
+        [Test]
         public void CustomAssetConversion()
         {
             Stellar.Network.CurrentNetwork = "ProjectQ";
