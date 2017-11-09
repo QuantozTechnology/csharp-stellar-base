@@ -30,7 +30,7 @@ namespace Stellar
         {
             get
             {
-                return StrKey.EncodeCheck(VersionByte.AccountId, PublicKey);
+                return StrKey.EncodeCheck(VersionByte.ed25519Publickey, PublicKey);
             }
         }
 
@@ -38,7 +38,7 @@ namespace Stellar
         {
             get
             {
-                return StrKey.EncodeCheck(VersionByte.Seed, SeedBytes);
+                return StrKey.EncodeCheck(VersionByte.ed25519SecretSeed, SeedBytes);
             }
         }
 
@@ -65,12 +65,12 @@ namespace Stellar
         {
             if (pubKey.Length != 32)
             {
-                throw new ArgumentException("pubKey must be 64 bytes");
+                throw new ArgumentException("pubKey must be 32 bytes");
             }
 
             if (secretKey.Length != 64)
             {
-                throw new ArgumentException("pubKey must be 64 bytes");
+                throw new ArgumentException("secretKey must be 64 bytes");
             }
 
             if (seed.Length != 32)
@@ -87,7 +87,7 @@ namespace Stellar
         {
             if (pubKey.Length != 32)
             {
-                throw new ArgumentException("pubKey must be 64 bytes");
+                throw new ArgumentException("pubKey must be 32 bytes");
             }
 
             if (seed.Length != 32)
@@ -150,7 +150,7 @@ namespace Stellar
 
         public static KeyPair FromSeed(string seed)
         {
-            var bytes = StrKey.DecodeCheck(VersionByte.Seed, seed);
+            var bytes = StrKey.DecodeCheck(VersionByte.ed25519SecretSeed, seed);
             return FromRawSeed(bytes);
         }
 
@@ -169,7 +169,7 @@ namespace Stellar
         [Obsolete("Use FromPublickey instead.")]
         public static KeyPair FromAccountId(string accountId)
         {
-            var bytes = StrKey.DecodeCheck(VersionByte.AccountId, accountId);
+            var bytes = StrKey.DecodeCheck(VersionByte.ed25519Publickey, accountId);
             return FromPublicKey(bytes);
         }
 
