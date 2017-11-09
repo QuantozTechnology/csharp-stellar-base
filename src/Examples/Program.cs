@@ -1,5 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Stellar;
+﻿using Stellar;
 using System;
 using System.Collections.Generic;
 using System.Linq;

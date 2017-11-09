@@ -1,18 +1,20 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 using Stellar;
-using System.Text;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace csharp_stellar_base.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class KeyPairTests
     {
         private static string seed = "1123740522f11bfef6b3671f51e159ccf589ccf8965262dd5f97d1721d383dd4";
 
 
-        [TestMethod]
+        [Test]
         public void MasterKeyPair()
         {
             Network.CurrentNetwork = "ProjectQ";
@@ -22,7 +24,7 @@ namespace csharp_stellar_base.Tests
             Assert.AreEqual("GD7NDO2ZZ35B22AC73KSJ7TC7C2EDRNI3HCBIPUA5NHC4GJMWGAGMP7G", keyPair.Address);
         }
 
-        [TestMethod]
+        [Test]
         public void TestSeed()
         {
             Network.CurrentNetwork = "ProjectQ";
@@ -31,7 +33,7 @@ namespace csharp_stellar_base.Tests
             Assert.AreEqual("SCEQIZTB6HSQJA4QJZKUNHDRGG3WXSWKLHINW5HJYDAYRM24M62JVXE2", keyPair.Seed);
         }
 
-        [TestMethod]
+        [Test]
         public void TestSign()
         {
             string expectedSig = "587d4b472eeef7d07aafcd0b049640b0bb3f39784118c2e2b73a04fa2f64c9c538b4b2d0f5335e968a480021fdc23e98c0ddf424cb15d8131df8cb6c4bb58309";
@@ -42,7 +44,7 @@ namespace csharp_stellar_base.Tests
             CollectionAssert.AreEqual(expected, sig);
         }
 
-        [TestMethod]
+        [Test]
         public void TestVerifyTrue()
         {
             string sig = "587d4b472eeef7d07aafcd0b049640b0bb3f39784118c2e2b73a04fa2f64c9c538b4b2d0f5335e968a480021fdc23e98c0ddf424cb15d8131df8cb6c4bb58309";
@@ -53,7 +55,7 @@ namespace csharp_stellar_base.Tests
             Assert.IsTrue(keypair.Verify(expected, byteData));
         }
 
-        [TestMethod]
+        [Test]
         public void TestVerifyFalse()
         {
             string badSig = "687d4b472eeef7d07aafcd0b049640b0bb3f39784118c2e2b73a04fa2f64c9c538b4b2d0f5335e968a480021fdc23e98c0ddf424cb15d8131df8cb6c4bb58309";
@@ -64,7 +66,7 @@ namespace csharp_stellar_base.Tests
             Assert.IsFalse(keypair.Verify(Encoding.UTF8.GetBytes(data), corrupt));
         }
 
-        [TestMethod]
+        [Test]
         public void TestFromSecretSeed()
         {
             var keypairs = new Dictionary<string, string>();

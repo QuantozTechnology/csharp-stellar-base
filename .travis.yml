@@ -1,0 +1,8 @@
+language: csharp
+solution: csharp-stellar-base.sln
+install:
+  - nuget restore csharp-stellar-base.sln
+  - nuget install NUnit.ConsoleRunner -Version 3.7.0 -OutputDirectory testrunner
+script:
+  - xbuild /p:Configuration=Release csharp-stellar-base.sln
+  - mono ./testrunner/NUnit.ConsoleRunner.3.7.0/tools/nunit3-console.exe ./tests/csharp-stellar-base.Tests/bin/Release/csharp-stellar-base.Tests.dll

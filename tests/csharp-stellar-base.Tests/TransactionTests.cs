@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 using Stellar;
 using Stellar.Generated;
 using System;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace csharp_stellar_base.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class TransactionTests
     {
         public TransactionTests()
@@ -39,7 +39,7 @@ namespace csharp_stellar_base.Tests
             return transaction;
         }
 
-        [TestMethod]
+        [Test]
         public void SignatureBaseTest()
         {
             var transaction = SampleTransaction("GDICFS3KJ3ZTW4COVPUX7OCOAZKLLNFAM5FIYSN5FKKM7M7QNXLBPCCH");
@@ -60,7 +60,7 @@ namespace csharp_stellar_base.Tests
             Assert.AreEqual(sigSample64, sig64);
         }
 
-        [TestMethod]
+        [Test]
         public void HashTest()
         {
             var transaction = SampleTransaction("GDICFS3KJ3ZTW4COVPUX7OCOAZKLLNFAM5FIYSN5FKKM7M7QNXLBPCCH");
