@@ -1,19 +1,22 @@
-# csharp-stellar-base
+# ** Deprecated **
+Does not support Horizon 0.17.0
+
+## csharp-stellar-base
 Quick and dirty library to create, encode and decode Stellar transactions
 
 
-# Dependencies
+## Dependencies
 - .NET 2.0
 
-# Usage
+## Usage
 - Open in project Visual Studio (tested in VS 2015)
 - Build Solution
 
-# Tests
+## Tests
 - Run self tests using [TEST] -> Run -> All tests
 	- or [Ctrl+R], A
 
-# Generate code (LINUX commandline)
+## Generate code (LINUX commandline)
 use ruby > 2.2.6 
 run:
 ``` 
