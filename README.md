@@ -1,5 +1,7 @@
 # ** Deprecated **
-Does not support Horizon 0.17.0
+This SDK does not support Horizon 0.17.0
+A more actively maintained SDK for .NET Core can be found here: https://github.com/elucidsoft/dotnet-stellar-sdk
+
 
 ## csharp-stellar-base
 Quick and dirty library to create, encode and decode Stellar transactions
